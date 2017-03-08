@@ -124,6 +124,7 @@ for i=1:NUM_OF_CLOUDS
 end
 
 % Display average errors 
+fprintf('\n\n');
 fprintf('\t\t\t\t\t\t Localization Error[m] \t\t Yaw Absolute Error[deg] \t\t Pitch Absolute Error[deg] \t\t Roll Absolute Error[deg]\n');
 for ind=1:length(ICP_METHODS)
     icp_method = ICP_METHODS{ind};
