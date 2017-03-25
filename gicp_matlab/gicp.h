@@ -63,6 +63,7 @@ namespace dgc {
       ~GICPPointSet();
       void BuildKDTree();
       void ComputeMatrices();
+	  void ComputeMatricesDiag(double diag_val);
       
       void SavePoints(const char *filename);
       void SaveMatrices(const char *filename);
