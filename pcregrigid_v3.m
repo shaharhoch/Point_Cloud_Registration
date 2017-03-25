@@ -1,4 +1,4 @@
-function [tform,movingReg,rmse,numIter] = pcregrigid_v3(moving, fixed, varargin)
+function [tform,numIter,movingReg,rmse] = pcregrigid_v3(moving, fixed, varargin)
 %PCREGRIGID Register two point clouds with ICP algorithm.
 %   tform = PCREGRIGID(moving, fixed) returns the rigid transformation that
 %   registers the moving point cloud with the fixed point cloud. moving and

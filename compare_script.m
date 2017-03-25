@@ -23,32 +23,36 @@ ICP_TOLERANCE = [0.1,0.1*pi/180];
 % ICP Methods
 no_icp.name = sprintf('No ICP');
 no_icp.errors = []; 
-no_icp.function_handle = @(local, global_c) eye(4,4);
+no_icp.num_iter = [];
+no_icp.function_handle = @(local, global_c) unitTransform();
 
 icp_point_to_point.name = 'ICP Point to Point' ; 
 icp_point_to_point.errors = []; 
+icp_point_to_point.num_iter = [];
 icp_point_to_point.function_handle = @(local, global_c) ...
-    transpose(getfield(pcregrigid_v3(local,global_c, ...
-    'Metric','pointToPoint',...
-    'Extrapolate',ICP_EXTRAPOLATE,...
-    'MaxIterations',ICP_MAX_ITERATIONS,...
-    'InlierRatio',MAX_INLINER_RATIO,... % value not actually used as inlier ratio - it is used as maxInlierDistance!
-    'Tolerance',ICP_TOLERANCE), 'T'));
+    runMatlabICP(local,global_c, ...
+    'pointToPoint',...
+    ICP_EXTRAPOLATE,...
+    ICP_MAX_ITERATIONS,...
+    MAX_INLINER_RATIO,... % value not actually used as inlier ratio - it is used as maxInlierDistance!
+    ICP_TOLERANCE);
 
 icp_point_to_plane.name = 'ICP Point to Plane' ; 
 icp_point_to_plane.errors = []; 
+icp_point_to_plane.num_iter = [];
 icp_point_to_plane.function_handle = @(local, global_c) ...
-    transpose(getfield(pcregrigid_v3(local,global_c, ...
-    'Metric','pointToPlane',...
-    'Extrapolate',ICP_EXTRAPOLATE,...
-    'MaxIterations',ICP_MAX_ITERATIONS,...
-    'InlierRatio',MAX_INLINER_RATIO,... % value not actually used as inlier ratio - it is used as maxInlierDistance!
-    'Tolerance',ICP_TOLERANCE), 'T'));
+    runMatlabICP(local,global_c, ...
+    'pointToPlane',...
+    ICP_EXTRAPOLATE,...
+    ICP_MAX_ITERATIONS,...
+    MAX_INLINER_RATIO,... % value not actually used as inlier ratio - it is used as maxInlierDistance!
+    ICP_TOLERANCE);
 
 gicp.name = 'Generalized ICP' ; 
 gicp.errors = []; 
-gicp.function_handle = @(local, global_c) transpose(gicp_alg(double(getfield(local, 'Location')),...
-    double(getfield(global_c, 'Location')), GICP_EPSILON, MAX_INLINER_DISTANCE));
+gicp.num_iter = [];
+gicp.function_handle = @(local, global_c) gicpWrapper(local, global_c,...
+    GICP_EPSILON, MAX_INLINER_DISTANCE);
 
 ICP_METHODS = {no_icp, icp_point_to_point, icp_point_to_plane, gicp}; 
 
@@ -103,7 +107,7 @@ for i=1:NUM_OF_CLOUDS
     for ind=1:length(ICP_METHODS)
         icp_method = ICP_METHODS{ind}; 
         
-        reg_trans = icp_method.function_handle(local_cloud_coarse,...
+        [reg_trans, num_iter] = icp_method.function_handle(local_cloud_coarse,...
             global_cloud_relevant);
         
         % Get the total registration transformation
@@ -118,6 +122,9 @@ for i=1:NUM_OF_CLOUDS
         
         icp_method.errors = [icp_method.errors; ...
             getTransformationDiff(total_reg_mtx, gt_reg_mat)];
+        
+        icp_method.num_iter = [icp_method.num_iter; ...
+            num_iter];
         
         ICP_METHODS{ind} = icp_method;
     end    
@@ -156,3 +163,74 @@ for ind=1:length(ICP_METHODS)
     end
 end
 fprintf('\n\n');
+
+fprintf('\t\t\t\t\t\t Num of iterations (Mean) \t\t\t Num of iterations (STD)\n');
+for ind=1:length(ICP_METHODS)
+    icp_method = ICP_METHODS{ind};
+    avg_num_iter = mean(icp_method.num_iter, 1);
+    std_num_iter = std(icp_method.num_iter, 0, 1);
+    
+    % Print
+    fprintf('%-18s \t\t\t %f \t\t\t\t\t\t\t %f \n', ...
+        icp_method.name, avg_num_iter, std_num_iter);
+end
+fprintf('\n\n');
+
+% Plot error histograms
+histogram_types = {'Localization Error', 'Realtive Rotation Error'};
+units = {'[m]', '[deg]'};
+
+% Print histograms
+for i=1:length(ICP_METHODS)
+    figure;
+    error_vec = [ICP_METHODS{i}.errors(:,1), ...
+        sum(abs(ICP_METHODS{i}.errors(:,2:4)),2)];
+    for j=1:length(histogram_types)
+        errors = abs(ICP_METHODS{i}.errors(:,j));
+        subplot(1,2,j);
+        histogram(errors, linspace(0,2,6))
+        title_str = sprintf('%s for %s \n Mean: %.2f, STD: %.2f',...
+            histogram_types{j}, ICP_METHODS{i}.name, mean(errors), std(errors));
+        title(title_str)
+        xlabel([histogram_types{j}, units{j}])
+        ylabel('Num of Occurences')
+    end
+end
+
+% Print graphs of all 24 errors
+figure;
+subplot(1,2,1); 
+title('Cloud Localization Error')
+xlabel('Cloud Index')
+ylabel('Localization Error[m]')
+hold on
+
+subplot(1,2,2);
+title('Cloud Realtive Rotation Error')
+xlabel('Cloud Index')
+ylabel('Realtive Rotation Error[deg]')
+hold on
+
+plot_types = {'-x', '-o', '-*', '-+'};
+
+name_cell = {};
+for i=1:length(ICP_METHODS)
+    error_vec = [ICP_METHODS{i}.errors(:,1), ...
+        sum(abs(ICP_METHODS{i}.errors(:,2:4)),2)];
+    
+    subplot(1,2,1)
+    plot(error_vec(:,1), plot_types{i})
+    hold on
+    
+    subplot(1,2,2)
+    plot(error_vec(:,2), plot_types{i})
+    hold on
+    
+    name_cell{i} = ICP_METHODS{i}.name;
+end
+subplot(1,2,1)
+legend(name_cell)
+
+subplot(1,2,2)
+legend(name_cell)
+    

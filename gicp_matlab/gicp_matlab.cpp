@@ -51,12 +51,15 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
     dgc_transform_identity(t1);
     
     int iterations = global_cloud.AlignScan(&local_cloud, t_base, t1, d_max);
-	mexPrintf("GICP algorithm converged after %d iterations\n", iterations);
+	//mexPrintf("GICP algorithm converged after %d iterations\n", iterations);
     
-    // Prepate output argument
+    // Prepate output arguments
     plhs[0] = mxCreateDoubleMatrix(4,4,mxREAL);
     memcpy(mxGetPr(plhs[0]), &t1, 4*4*sizeof(double));
     
+    plhs[1] = mxCreateDoubleScalar(0);
+    double* iter_out = mxGetPr(plhs[1]); 
+    *iter_out = (double)(iterations);
 }
 
 // This function verifies the correctness of the inputs from matlab
