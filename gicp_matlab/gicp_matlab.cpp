@@ -38,10 +38,12 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
     global_cloud.SetGICPEpsilon(epsilon);  
     local_cloud.BuildKDTree();
     local_cloud.ComputeMatrices();
+	//local_cloud.ComputeMatricesDiag(0.0); 
     global_cloud.BuildKDTree();
     global_cloud.ComputeMatrices();
+	//global_cloud.ComputeMatricesDiag(1.0);
     
-    global_cloud.SetDebug(false);
+    global_cloud.SetDebug(true);
     global_cloud.SetMaxIterationInner(8);
     global_cloud.SetMaxIteration(100);
     
@@ -60,6 +62,9 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
     plhs[1] = mxCreateDoubleScalar(0);
     double* iter_out = mxGetPr(plhs[1]); 
     *iter_out = (double)(iterations);
+	
+	local_cloud.SaveMatrices("local_matrix.txt");
+	global_cloud.SaveMatrices("global_matrix.txt");
 }
 
 // This function verifies the correctness of the inputs from matlab

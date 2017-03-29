@@ -1,0 +1,8 @@
+﻿     Creating library C:\Project\Point_Cloud_Registration\GICP_VS\GICP_VS\Debug\GICP_VS.lib and object C:\Project\Point_Cloud_Registration\GICP_VS\GICP_VS\Debug\GICP_VS.exp
+GICP_VS.exp : warning LNK4070: /OUT:MYFILE.dll directive in .EXP differs from output filename 'C:\Project\Point_Cloud_Registration\GICP_VS\GICP_VS\Debug\GICP_VS.mexw64'; ignoring directive
+test.obj : error LNK2019: unresolved external symbol _mxGetPr referenced in function _mexFunction
+test.obj : error LNK2019: unresolved external symbol _mxCreateDoubleScalar referenced in function _mexFunction
+C:\Program Files\MATLAB\R2016b\extern\lib\win64\microsoft\libmx.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'X86'
+C:\Program Files\MATLAB\R2016b\extern\lib\win64\microsoft\libmex.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'X86'
+C:\Program Files\MATLAB\R2016b\extern\lib\win64\microsoft\libmat.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'X86'
+C:\Project\Point_Cloud_Registration\GICP_VS\GICP_VS\Debug\GICP_VS.mexw64 : fatal error LNK1120: 2 unresolved externals

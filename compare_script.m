@@ -54,7 +54,8 @@ gicp.num_iter = [];
 gicp.function_handle = @(local, global_c) gicpWrapper(local, global_c,...
     GICP_EPSILON, MAX_INLINER_DISTANCE);
 
-ICP_METHODS = {no_icp, icp_point_to_point, icp_point_to_plane, gicp}; 
+%ICP_METHODS = {no_icp, icp_point_to_point, icp_point_to_plane, gicp}; 
+ICP_METHODS = {gicp, no_icp};
 
 for i=1:NUM_OF_CLOUDS
     % Get cloud name
