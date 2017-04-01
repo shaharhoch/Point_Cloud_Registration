@@ -64,6 +64,7 @@ namespace dgc {
       void BuildKDTree();
       void ComputeMatrices();
 	  void ComputeMatricesDiag(double diag_val);
+	  void ComputeMatricesChangingEpsilon(double epsilon_0, double epsilon_1, double pov[3]);
       
       void SavePoints(const char *filename);
       void SaveMatrices(const char *filename);

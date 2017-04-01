@@ -9,6 +9,7 @@ COARS_REG_DB = csvread('Database\Local2Global_Coarse.csv');
 GROUND_TRUTH_DB = csvread('Database\Local2Global_GT.csv');
 
 GICP_EPSILON = 1e-6;
+GICP_DMAX = 4;
 NUM_OF_POINTS_FOR_NORMAL_CALC = 6;
 
 LOCAL_CLOUD_RANGE = [2, 60]; %[min, max]
@@ -52,10 +53,10 @@ gicp.name = 'Generalized ICP' ;
 gicp.errors = []; 
 gicp.num_iter = [];
 gicp.function_handle = @(local, global_c) gicpWrapper(local, global_c,...
-    GICP_EPSILON, MAX_INLINER_DISTANCE);
+    GICP_DMAX, GICP_EPSILON);
 
 %ICP_METHODS = {no_icp, icp_point_to_point, icp_point_to_plane, gicp}; 
-ICP_METHODS = {gicp, no_icp};
+ICP_METHODS = {gicp, no_icp, gicp_change};
 
 for i=1:NUM_OF_CLOUDS
     % Get cloud name

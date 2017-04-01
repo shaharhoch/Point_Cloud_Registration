@@ -8,11 +8,31 @@ bunny1.Color = uint8(repmat([255, 0, 0],size(bunny1.Location,1),1));
 bunny2 = pcread('Database\Bunny\bun045.ply');
 bunny2.Color = uint8(repmat([0, 0, 255],size(bunny2.Location,1),1));
 
+POV = [0; 0; 0]; 
+LOCAL_EPS_0 = 0; 
+LOCAL_EPS_1 = 1e-4; 
+GLOBAL_EPS = 1e-6; 
+
+% Add noise to bunny1 (global cloud)
+local_normals = double(pcnormals(bunny1));
+noise_size1 = sqrt(GLOBAL_EPS).*normrnd(0,1,[size(local_normals,1),1]);
+noise_size1 = 0;
+bunny1 = pointCloud(double(bunny1.Location)+noise_size1.*local_normals);
+bunny1.Color = uint8(repmat([255, 0, 0],size(bunny1.Location,1),1));
+
+% Add noise to bunny2 (local cloud)
+local_normals = double(pcnormals(bunny2));
+dist = sum((double(bunny2.Location)-POV.').^2, 2);
+noise_size2 = sqrt((LOCAL_EPS_0+LOCAL_EPS_1*dist)).*normrnd(0,1,[size(local_normals,1),1]);
+noise_size2 = 0; 
+bunny2 = pointCloud(double(bunny2.Location)+noise_size2.*local_normals);
+bunny2.Color = uint8(repmat([0, 0, 255],size(bunny2.Location,1),1));
+
 GT_REG_MATRIX = [quat2rotm([0.955586 0.00548449 -0.294635 -0.0038555]).',...
     [-0.0520211; -0.000383981; -0.0109223]; [0, 0, 0, 1]];
 
-GICP_EPSILON = 1e-6; 
-D_MAX = 2; 
+GICP_EPSILON = 1e-4; 
+D_MAX = 4; 
 
 ICP_EXTRAPOLATE = false;
 ICP_MAX_ITERATIONS = 100;
@@ -55,7 +75,14 @@ gicp.num_iter = [];
 gicp.function_handle = @(local, global_c) gicpWrapper(local, global_c,...
     D_MAX, GICP_EPSILON);
 
-ICP_METHODS = {no_icp, icp_point_to_point, icp_point_to_plane, gicp}; 
+gicp_change.name = 'Generalized ICP CE' ; 
+gicp_change.errors = []; 
+gicp_change.num_iter = [];
+gicp_change.function_handle = @(local, global_c) gicpWrapper(local, global_c,...
+    D_MAX, GLOBAL_EPS, LOCAL_EPS_0, LOCAL_EPS_1, POV);
+
+ICP_METHODS = {no_icp, icp_point_to_point, icp_point_to_plane, gicp_change}; 
+%ICP_METHODS = {gicp_change}; 
 
 % Apply ICP registration
 for ind=1:length(ICP_METHODS)

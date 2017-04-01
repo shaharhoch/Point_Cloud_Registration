@@ -1,0 +1,478 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ANN_ALLOW_SELF_MATCH	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	232;"	kind:variable	line:232	language:C++
+ANN_AR_TOOBIG	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_tree.cpp	145;"	kind:variable	line:145	language:C++
+ANN_BD_CENTROID	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	605;"	kind:enumerator	line:605	language:C++	enum:ANNshrinkRule
+ANN_BD_NONE	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	603;"	kind:enumerator	line:603	language:C++	enum:ANNshrinkRule
+ANN_BD_SIMPLE	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	604;"	kind:enumerator	line:604	language:C++	enum:ANNshrinkRule
+ANN_BD_SUGGEST	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	606;"	kind:enumerator	line:606	language:C++	enum:ANNshrinkRule
+ANN_COORD	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	129;"	kind:macro	line:129	language:C++
+ANN_COORD	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	136;"	kind:macro	line:136	language:C++
+ANN_DBL_MAX	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	111;"	kind:variable	line:111	language:C++
+ANN_DBL_MAX	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	115;"	kind:variable	line:115	language:C++
+ANN_DIFF	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	336;"	kind:macro	line:336	language:C++
+ANN_DIST_INF	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	196;"	kind:variable	line:196	language:C++
+ANN_FLOP	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	124;"	kind:macro	line:124	language:C++
+ANN_FLOP	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	131;"	kind:macro	line:131	language:C++
+ANN_H	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	58;"	kind:macro	line:58	language:C++
+ANN_HI	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNx.h	43;"	kind:enumerator	line:43	language:C++	enum:__anon1
+ANN_IN	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNx.h	44;"	kind:enumerator	line:44	language:C++	enum:__anon2
+ANN_KD_FAIR	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	596;"	kind:enumerator	line:596	language:C++	enum:ANNsplitRule
+ANN_KD_MIDPT	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	595;"	kind:enumerator	line:595	language:C++	enum:ANNsplitRule
+ANN_KD_SL_FAIR	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	598;"	kind:enumerator	line:598	language:C++	enum:ANNsplitRule
+ANN_KD_SL_MIDPT	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	597;"	kind:enumerator	line:597	language:C++	enum:ANNsplitRule
+ANN_KD_SPLIT_H	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_split.h	26;"	kind:macro	line:26	language:C++
+ANN_KD_STD	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	594;"	kind:enumerator	line:594	language:C++	enum:ANNsplitRule
+ANN_KD_SUGGEST	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	599;"	kind:enumerator	line:599	language:C++	enum:ANNsplitRule
+ANN_LEAF	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	125;"	kind:macro	line:125	language:C++
+ANN_LEAF	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	132;"	kind:macro	line:132	language:C++
+ANN_LO	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNx.h	43;"	kind:enumerator	line:43	language:C++	enum:__anon1
+ANN_NULL_IDX	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	173;"	kind:variable	line:173	language:C++
+ANN_N_SHRINK_RULES	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	607;"	kind:variable	line:607	language:C++
+ANN_N_SPLIT_RULES	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	600;"	kind:variable	line:600	language:C++
+ANN_OUT	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNx.h	44;"	kind:enumerator	line:44	language:C++	enum:__anon2
+ANN_POW	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	333;"	kind:macro	line:333	language:C++
+ANN_PTS	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	128;"	kind:macro	line:128	language:C++
+ANN_PTS	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	135;"	kind:macro	line:135	language:C++
+ANN_ROOT	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	334;"	kind:macro	line:334	language:C++
+ANN_SHR	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	127;"	kind:macro	line:127	language:C++
+ANN_SHR	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	134;"	kind:macro	line:134	language:C++
+ANN_SPL	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	126;"	kind:macro	line:126	language:C++
+ANN_SPL	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	133;"	kind:macro	line:133	language:C++
+ANN_SUM	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	335;"	kind:macro	line:335	language:C++
+ANN_bd_tree_H	C:\Project\Point_Cloud_Registration\gicp_matlab\bd_tree.h	28;"	kind:macro	line:28	language:C++
+ANN_kd_fix_rad_search_H	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_fix_rad_search.h	26;"	kind:macro	line:26	language:C++
+ANN_kd_pr_search_H	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_pr_search.h	26;"	kind:macro	line:26	language:C++
+ANN_kd_search_H	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_search.h	26;"	kind:macro	line:26	language:C++
+ANN_kd_tree_H	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_tree.h	28;"	kind:macro	line:28	language:C++
+ANN_kd_util_H	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_util.h	26;"	kind:macro	line:26	language:C++
+ANNabort	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNx.h	46;"	kind:enumerator	line:46	language:C++	enum:ANNerr
+ANNbd_shrink	C:\Project\Point_Cloud_Registration\gicp_matlab\bd_tree.h	61;"	kind:class	line:61	language:C++	inherits:ANNkd_node
+ANNbd_shrink	C:\Project\Point_Cloud_Registration\gicp_matlab\bd_tree.h	67;"	kind:function	line:67	language:C++	class:ANNbd_shrink	access:public	signature:( int nb, ANNorthHSArray bds, ANNkd_ptr ic=NULL, ANNkd_ptr oc=NULL)
+ANNbd_tree	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	794;"	kind:class	line:794	language:C++	inherits:ANNkd_tree
+ANNbd_tree	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	796;"	kind:function	line:796	language:C++	class:ANNbd_tree	access:public	signature:( int n, int dd, int bs = 1)
+ANNbd_tree	C:\Project\Point_Cloud_Registration\gicp_matlab\bd_tree.cpp	116;"	kind:function	line:116	language:C++	class:ANNbd_tree	signature:( ANNpointArray pa, int n, int dd, int bs, ANNsplitRule split, ANNshrinkRule shrink)
+ANNbd_tree	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_dump.cpp	215;"	kind:function	line:215	language:C++	class:ANNbd_tree	signature:( istream &in)
+ANNbool	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	129;"	kind:enum	line:129	language:C++
+ANNbruteForce	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	535;"	kind:class	line:535	language:C++	inherits:ANNpointSet
+ANNbruteForce	C:\Project\Point_Cloud_Registration\gicp_matlab\brute.cpp	44;"	kind:function	line:44	language:C++	class:ANNbruteForce	signature:( ANNpointArray pa, int n, int dd)
+ANNcoord	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	155;"	kind:typedef	line:155	language:C++
+ANNcoordPrec	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	217;"	kind:variable	line:217	language:C++
+ANNcoordPrec	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	219;"	kind:variable	line:219	language:C++
+ANNcopyright	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	120;"	kind:macro	line:120	language:C++
+ANNdecomp	C:\Project\Point_Cloud_Registration\gicp_matlab\bd_tree.cpp	162;"	kind:enum	line:162	language:C++	file:
+ANNdist	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	156;"	kind:typedef	line:156	language:C++
+ANNdistArray	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	374;"	kind:typedef	line:374	language:C++
+ANNerr	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNx.h	46;"	kind:enum	line:46	language:C++
+ANNfalse	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	129;"	kind:enumerator	line:129	language:C++	enum:ANNbool
+ANNidx	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	172;"	kind:typedef	line:172	language:C++
+ANNidxArray	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	375;"	kind:typedef	line:375	language:C++
+ANNkdDim	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_search.cpp	79;"	kind:variable	line:79	language:C++
+ANNkdFRDim	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_fix_rad_search.cpp	45;"	kind:variable	line:45	language:C++
+ANNkdFRMaxErr	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_fix_rad_search.cpp	48;"	kind:variable	line:48	language:C++
+ANNkdFRPointMK	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_fix_rad_search.cpp	50;"	kind:variable	line:50	language:C++
+ANNkdFRPts	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_fix_rad_search.cpp	49;"	kind:variable	line:49	language:C++
+ANNkdFRPtsInRange	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_fix_rad_search.cpp	52;"	kind:variable	line:52	language:C++
+ANNkdFRPtsVisited	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_fix_rad_search.cpp	51;"	kind:variable	line:51	language:C++
+ANNkdFRQ	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_fix_rad_search.cpp	46;"	kind:variable	line:46	language:C++
+ANNkdFRSqRad	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_fix_rad_search.cpp	47;"	kind:variable	line:47	language:C++
+ANNkdMaxErr	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_search.cpp	81;"	kind:variable	line:81	language:C++
+ANNkdPointMK	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_search.cpp	83;"	kind:variable	line:83	language:C++
+ANNkdPts	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_search.cpp	82;"	kind:variable	line:82	language:C++
+ANNkdQ	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_search.cpp	80;"	kind:variable	line:80	language:C++
+ANNkdStats	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	45;"	kind:class	line:45	language:C++
+ANNkdStats	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	66;"	kind:function	line:66	language:C++	class:ANNkdStats	access:public	signature:()
+ANNkd_leaf	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_tree.h	91;"	kind:class	line:91	language:C++	inherits:ANNkd_node
+ANNkd_leaf	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_tree.h	96;"	kind:function	line:96	language:C++	class:ANNkd_leaf	access:public	signature:( int n, ANNidxArray b)
+ANNkd_node	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_tree.h	46;"	kind:class	line:46	language:C++
+ANNkd_ptr	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	700;"	kind:typedef	line:700	language:C++
+ANNkd_split	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_tree.h	142;"	kind:class	line:142	language:C++	inherits:ANNkd_node
+ANNkd_split	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_tree.h	150;"	kind:function	line:150	language:C++	class:ANNkd_split	access:public	signature:( int cd, ANNcoord cv, ANNcoord lv, ANNcoord hv, ANNkd_ptr lc=NULL, ANNkd_ptr hc=NULL)
+ANNkd_splitter	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_tree.h	72;"	kind:typedef	line:72	language:C++
+ANNkd_tree	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	702;"	kind:class	line:702	language:C++	inherits:ANNpointSet
+ANNkd_tree	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_dump.cpp	186;"	kind:function	line:186	language:C++	class:ANNkd_tree	signature:( istream &in)
+ANNkd_tree	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_tree.cpp	273;"	kind:function	line:273	language:C++	class:ANNkd_tree	signature:( int n, int dd, int bs)
+ANNkd_tree	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_tree.cpp	368;"	kind:function	line:368	language:C++	class:ANNkd_tree	signature:( ANNpointArray pa, int n, int dd, int bs, ANNsplitRule split)
+ANNlatestRev	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	121;"	kind:macro	line:121	language:C++
+ANNmaxPtsVisited	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.cpp	187;"	kind:variable	line:187	language:C++
+ANNmin_k	C:\Project\Point_Cloud_Registration\gicp_matlab\pr_queue_k.h	66;"	kind:class	line:66	language:C++
+ANNmin_k	C:\Project\Point_Cloud_Registration\gicp_matlab\pr_queue_k.h	77;"	kind:function	line:77	language:C++	class:ANNmin_k	access:public	signature:(int max)
+ANNmin_key	C:\Project\Point_Cloud_Registration\gicp_matlab\pr_queue_k.h	87;"	kind:function	line:87	language:C++	class:ANNmin_k	access:public	signature:()
+ANNorthHSArray	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNx.h	165;"	kind:typedef	line:165	language:C++
+ANNorthHalfSpace	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNx.h	130;"	kind:class	line:130	language:C++
+ANNorthHalfSpace	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNx.h	136;"	kind:function	line:136	language:C++	class:ANNorthHalfSpace	access:public	signature:()
+ANNorthHalfSpace	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNx.h	139;"	kind:function	line:139	language:C++	class:ANNorthHalfSpace	access:public	signature:( int cdd, ANNcoord cvv, int sdd)
+ANNorthRect	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNx.h	100;"	kind:function	line:100	language:C++	class:ANNorthRect	access:public	signature:( int dd, const ANNorthRect &r)
+ANNorthRect	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNx.h	105;"	kind:function	line:105	language:C++	class:ANNorthRect	access:public	signature:( int dd, ANNpoint l, ANNpoint h)
+ANNorthRect	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNx.h	89;"	kind:class	line:89	language:C++
+ANNorthRect	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNx.h	94;"	kind:function	line:94	language:C++	class:ANNorthRect	access:public	signature:( int dd, ANNcoord l=0, ANNcoord h=0)
+ANNperf_H	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	31;"	kind:macro	line:31	language:C++
+ANNpoint	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	372;"	kind:typedef	line:372	language:C++
+ANNpointArray	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	373;"	kind:typedef	line:373	language:C++
+ANNpointSet	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	488;"	kind:class	line:488	language:C++
+ANNprBoxPQ	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_pr_search.cpp	80;"	kind:variable	line:80	language:C++
+ANNprDim	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_pr_search.cpp	76;"	kind:variable	line:76	language:C++
+ANNprEps	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_pr_search.cpp	75;"	kind:variable	line:75	language:C++
+ANNprMaxErr	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_pr_search.cpp	78;"	kind:variable	line:78	language:C++
+ANNprPointMK	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_pr_search.cpp	81;"	kind:variable	line:81	language:C++
+ANNprPts	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_pr_search.cpp	79;"	kind:variable	line:79	language:C++
+ANNprQ	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_pr_search.cpp	77;"	kind:variable	line:77	language:C++
+ANNpr_queue	C:\Project\Point_Cloud_Registration\gicp_matlab\pr_queue.h	54;"	kind:class	line:54	language:C++
+ANNpr_queue	C:\Project\Point_Cloud_Registration\gicp_matlab\pr_queue.h	65;"	kind:function	line:65	language:C++	class:ANNpr_queue	access:public	signature:(int max)
+ANNptsVisited	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.cpp	188;"	kind:variable	line:188	language:C++
+ANNsampStat	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	85;"	kind:class	line:85	language:C++
+ANNsampStat	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	99;"	kind:function	line:99	language:C++	class:ANNsampStat	access:public	signature:()
+ANNshrinkRule	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	602;"	kind:enum	line:602	language:C++
+ANNsplitRule	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	593;"	kind:enum	line:593	language:C++
+ANNtreeType	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_dump.cpp	46;"	kind:enum	line:46	language:C++	file:
+ANNtrue	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	129;"	kind:enumerator	line:129	language:C++	enum:ANNbool
+ANNversion	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	118;"	kind:macro	line:118	language:C++
+ANNversionCmt	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	119;"	kind:macro	line:119	language:C++
+ANNwarn	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNx.h	46;"	kind:enumerator	line:46	language:C++	enum:ANNerr
+ANNx_H	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNx.h	35;"	kind:macro	line:35	language:C++
+AlignScan	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.cpp	247;"	kind:function	line:247	language:C++	class:dgc::gicp::GICPPointSet	signature:(GICPPointSet *scan, dgc_transform_t base_t, dgc_transform_t t, double max_match_dist, bool save_error_plot)
+AppendPoint	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.h	75;"	kind:function	line:75	language:C++	class:dgc::gicp::GICPPointSet	access:public	signature:(GICPPoint const & pt)
+BD_CT_THRESH	C:\Project\Point_Cloud_Registration\gicp_matlab\bd_tree.cpp	179;"	kind:variable	line:179	language:C++
+BD_FRACTION	C:\Project\Point_Cloud_Registration\gicp_matlab\bd_tree.cpp	233;"	kind:variable	line:233	language:C++
+BD_GAP_THRESH	C:\Project\Point_Cloud_Registration\gicp_matlab\bd_tree.cpp	178;"	kind:variable	line:178	language:C++
+BD_MAX_SPLIT_FAC	C:\Project\Point_Cloud_Registration\gicp_matlab\bd_tree.cpp	232;"	kind:variable	line:232	language:C++
+BD_TREE	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_dump.cpp	46;"	kind:enumerator	line:46	language:C++	enum:ANNtreeType	file:
+BuildKDTree	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.cpp	97;"	kind:function	line:97	language:C++	class:dgc::gicp::GICPPointSet	signature:(void)
+C	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.h	57;"	kind:member	line:57	language:C++	struct:dgc::gicp::GICPPoint	access:public
+Clear	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.cpp	80;"	kind:function	line:80	language:C++	class:dgc::gicp::GICPPointSet	signature:(void)
+ComputeMatrices	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.cpp	121;"	kind:function	line:121	language:C++	class:dgc::gicp::GICPPointSet	signature:()
+ComputeMatricesChangingEpsilon	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.cpp	507;"	kind:function	line:507	language:C++	class:dgc::gicp::GICPPointSet	signature:(double epsilon_0, double epsilon_1, double pov[3])
+ComputeMatricesDiag	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.cpp	484;"	kind:function	line:484	language:C++	class:dgc::gicp::GICPPointSet	signature:(double diag_val)
+DGC_TRANSFORM_H	C:\Project\Point_Cloud_Registration\gicp_matlab\transform.h	2;"	kind:macro	line:2	language:C++
+DLL_API	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	75;"	kind:macro	line:75	language:C++
+DLL_API	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	77;"	kind:macro	line:77	language:C++
+DLL_API	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	83;"	kind:macro	line:83	language:C++
+Dump	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_dump.cpp	102;"	kind:function	line:102	language:C++	class:ANNkd_tree	signature:( ANNbool with_pts, ostream &out)
+EPSILON	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_dump.cpp	44;"	kind:variable	line:44	language:C++
+ERR	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_split.cpp	34;"	kind:variable	line:34	language:C++
+FS_ASPECT_RATIO	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_split.cpp	35;"	kind:variable	line:35	language:C++
+GICPOptData	C:\Project\Point_Cloud_Registration\gicp_matlab\optimize.h	62;"	kind:struct	line:62	language:C++	namespace:dgc::gicp
+GICPOptimizer	C:\Project\Point_Cloud_Registration\gicp_matlab\optimize.cpp	51;"	kind:function	line:51	language:C++	class:dgc::gicp::GICPOptimizer	signature:()
+GICPOptimizer	C:\Project\Point_Cloud_Registration\gicp_matlab\optimize.h	72;"	kind:class	line:72	language:C++	namespace:dgc::gicp
+GICPPoint	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.h	54;"	kind:struct	line:54	language:C++	namespace:dgc::gicp
+GICPPointSet	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.cpp	55;"	kind:function	line:55	language:C++	class:dgc::gicp::GICPPointSet	signature:()
+GICPPointSet	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.h	60;"	kind:class	line:60	language:C++	namespace:dgc::gicp
+GICP_H_	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.h	40;"	kind:macro	line:40	language:C++
+IDX_TRIVIAL	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_tree.cpp	49;"	kind:variable	line:49	language:C++	file:
+Iterations	C:\Project\Point_Cloud_Registration\gicp_matlab\optimize.h	77;"	kind:function	line:77	language:C++	class:dgc::gicp::GICPOptimizer	access:public	signature:()
+KD_TREE	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_dump.cpp	46;"	kind:enumerator	line:46	language:C++	enum:ANNtreeType	file:
+KD_TRIVIAL	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_tree.cpp	50;"	kind:variable	line:50	language:C++
+M	C:\Project\Point_Cloud_Registration\gicp_matlab\optimize.h	66;"	kind:member	line:66	language:C++	struct:dgc::gicp::GICPOptData	access:public
+MAX	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_tree.cpp	131;"	kind:macro	line:131	language:C++	file:
+N	C:\Project\Point_Cloud_Registration\gicp_matlab\optimize.h	104;"	kind:member	line:104	language:C++	class:dgc::gicp::GICPOptimizer	access:private
+NumPoints	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.h	72;"	kind:function	line:72	language:C++	class:dgc::gicp::GICPPointSet	access:public	signature:()
+OPTIMIZE_H_	C:\Project\Point_Cloud_Registration\gicp_matlab\optimize.h	39;"	kind:macro	line:39	language:C++
+Optimize	C:\Project\Point_Cloud_Registration\gicp_matlab\optimize.cpp	141;"	kind:function	line:141	language:C++	class:dgc::gicp::GICPOptimizer	signature:(dgc_transform_t t, GICPOptData & opt_data)
+PA	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_util.cpp	42;"	kind:macro	line:42	language:C++	file:
+PASWAP	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_util.cpp	228;"	kind:macro	line:228	language:C++	file:
+PI_REP	C:\Project\Point_Cloud_Registration\gicp_matlab\transform.cpp	8;"	kind:macro	line:8	language:C++	file:
+PP	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_util.cpp	44;"	kind:macro	line:44	language:C++	file:
+PQKinfo	C:\Project\Point_Cloud_Registration\gicp_matlab\pr_queue_k.h	35;"	kind:typedef	line:35	language:C++
+PQKkey	C:\Project\Point_Cloud_Registration\gicp_matlab\pr_queue_k.h	34;"	kind:typedef	line:34	language:C++
+PQ_NULL_INFO	C:\Project\Point_Cloud_Registration\gicp_matlab\pr_queue_k.h	47;"	kind:variable	line:47	language:C++
+PQ_NULL_KEY	C:\Project\Point_Cloud_Registration\gicp_matlab\pr_queue_k.h	46;"	kind:variable	line:46	language:C++
+PQinfo	C:\Project\Point_Cloud_Registration\gicp_matlab\pr_queue.h	35;"	kind:typedef	line:35	language:C++
+PQkey	C:\Project\Point_Cloud_Registration\gicp_matlab\pr_queue.h	36;"	kind:typedef	line:36	language:C++
+PR_QUEUE_H	C:\Project\Point_Cloud_Registration\gicp_matlab\pr_queue.h	27;"	kind:macro	line:27	language:C++
+PR_QUEUE_K_H	C:\Project\Point_Cloud_Registration\gicp_matlab\pr_queue_k.h	26;"	kind:macro	line:26	language:C++
+PlotError	C:\Project\Point_Cloud_Registration\gicp_matlab\optimize.cpp	82;"	kind:function	line:82	language:C++	class:dgc::gicp::GICPOptimizer	signature:(dgc_transform_t t, GICPOptData &opt_data, const char* filename)
+Print	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_tree.cpp	104;"	kind:function	line:104	language:C++	class:ANNkd_tree	signature:( ANNbool with_pts, ostream &out)
+SHRINK	C:\Project\Point_Cloud_Registration\gicp_matlab\bd_tree.cpp	162;"	kind:enumerator	line:162	language:C++	enum:ANNdecomp	file:
+SPLIT	C:\Project\Point_Cloud_Registration\gicp_matlab\bd_tree.cpp	162;"	kind:enumerator	line:162	language:C++	enum:ANNdecomp	file:
+STRING_LEN	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_dump.cpp	43;"	kind:variable	line:43	language:C++
+SaveMatrices	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.cpp	467;"	kind:function	line:467	language:C++	class:dgc::gicp::GICPPointSet	signature:(const char *filename)
+SavePoints	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.cpp	455;"	kind:function	line:455	language:C++	class:dgc::gicp::GICPPointSet	signature:(const char *filename)
+SetDebug	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.h	81;"	kind:function	line:81	language:C++	class:dgc::gicp::GICPPointSet	access:public	signature:(bool d)
+SetDebug	C:\Project\Point_Cloud_Registration\gicp_matlab\optimize.h	83;"	kind:function	line:83	language:C++	class:dgc::gicp::GICPOptimizer	access:public	signature:(bool d)
+SetEpsilon	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.h	78;"	kind:function	line:78	language:C++	class:dgc::gicp::GICPPointSet	access:public	signature:(double eps)
+SetGICPEpsilon	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.h	80;"	kind:function	line:80	language:C++	class:dgc::gicp::GICPPointSet	access:public	signature:(double eps)
+SetMaxIteration	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.h	76;"	kind:function	line:76	language:C++	class:dgc::gicp::GICPPointSet	access:public	signature:(int iter)
+SetMaxIterationInner	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.h	77;"	kind:function	line:77	language:C++	class:dgc::gicp::GICPPointSet	access:public	signature:(int iter)
+SetMaxIterations	C:\Project\Point_Cloud_Registration\gicp_matlab\optimize.h	85;"	kind:function	line:85	language:C++	class:dgc::gicp::GICPOptimizer	access:public	signature:(int iter)
+SetSolveRotation	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.h	79;"	kind:function	line:79	language:C++	class:dgc::gicp::GICPPointSet	access:public	signature:(bool s)
+Size	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.h	74;"	kind:function	line:74	language:C++	class:dgc::gicp::GICPPointSet	access:public	signature:()
+SkeletonTree	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_tree.cpp	244;"	kind:function	line:244	language:C++	class:ANNkd_tree	signature:( int n, int dd, int bs, ANNpointArray pa, ANNidxArray pi)
+Status	C:\Project\Point_Cloud_Registration\gicp_matlab\optimize.h	78;"	kind:function	line:78	language:C++	class:dgc::gicp::GICPOptimizer	access:public	signature:()
+T_min	C:\Project\Point_Cloud_Registration\gicp_matlab\optimize.h	105;"	kind:member	line:105	language:C++	class:dgc::gicp::GICPOptimizer	access:private
+__SCAN_H	C:\Project\Point_Cloud_Registration\gicp_matlab\scan.h	40;"	kind:macro	line:40	language:C++
+annAllocPt	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.cpp	107;"	kind:function	line:107	language:C++	signature:(int dim, ANNcoord c)
+annAllocPts	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.cpp	114;"	kind:function	line:114	language:C++	signature:(int n, int dim)
+annAspectRatio	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_util.cpp	52;"	kind:function	line:52	language:C++	signature:( int dim, const ANNorthRect &bnd_box)
+annAssignRect	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.cpp	145;"	kind:function	line:145	language:C++	signature:(int dim, ANNorthRect &dest, const ANNorthRect &source)
+annBnds2Box	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_util.cpp	426;"	kind:function	line:426	language:C++	signature:( const ANNorthRect &bnd_box, int dim, int n_bnds, ANNorthHSArray bnds, ANNorthRect &inner_box)
+annBox2Bnds	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_util.cpp	384;"	kind:function	line:384	language:C++	signature:( const ANNorthRect &inner_box, const ANNorthRect &bnd_box, int dim, int &n_bnds, ANNorthHSArray &bnds)
+annBoxDistance	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_util.cpp	124;"	kind:function	line:124	language:C++	signature:( const ANNpoint q, const ANNpoint lo, const ANNpoint hi, int dim)
+annBoxSplit	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_util.cpp	332;"	kind:function	line:332	language:C++	signature:( ANNpointArray pa, ANNidxArray pidx, int n, int dim, ANNorthRect &box, int &n_in)
+annClose	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_tree.cpp	221;"	kind:function	line:221	language:C++	signature:()
+annCopyPt	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.cpp	137;"	kind:function	line:137	language:C++	signature:(int dim, ANNpoint source)
+annDeallocPt	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.cpp	124;"	kind:function	line:124	language:C++	signature:(ANNpoint &p)
+annDeallocPts	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.cpp	130;"	kind:function	line:130	language:C++	signature:(ANNpointArray &pa)
+annDist	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.cpp	43;"	kind:function	line:43	language:C++	signature:( int dim, ANNpoint p, ANNpoint q)
+annEnclCube	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_util.cpp	92;"	kind:function	line:92	language:C++	signature:( ANNpointArray pa, ANNidxArray pidx, int n, int dim, ANNorthRect &bnds)
+annEnclRect	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_util.cpp	73;"	kind:function	line:73	language:C++	signature:( ANNpointArray pa, ANNidxArray pidx, int n, int dim, ANNorthRect &bnds)
+annError	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.cpp	166;"	kind:function	line:166	language:C++	signature:(char *msg, ANNerr level)
+annMaxPtsVisit	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.cpp	194;"	kind:function	line:194	language:C++	signature:( int maxPts)
+annMaxSpread	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_util.cpp	187;"	kind:function	line:187	language:C++	signature:( ANNpointArray pa, ANNidxArray pidx, int n, int dim)
+annMedianSplit	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_util.cpp	230;"	kind:function	line:230	language:C++	signature:( ANNpointArray pa, ANNidxArray pidx, int n, int d, ANNcoord &cv, int n_lo)
+annMinMax	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_util.cpp	170;"	kind:function	line:170	language:C++	signature:( ANNpointArray pa, ANNidxArray pidx, int n, int d, ANNcoord &min, ANNcoord &max)
+annPlaneSplit	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_util.cpp	291;"	kind:function	line:291	language:C++	signature:( ANNpointArray pa, ANNidxArray pidx, int n, int d, ANNcoord cv, int &br1, int &br2)
+annPrintPt	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.cpp	67;"	kind:function	line:67	language:C++	signature:( ANNpoint pt, int dim, std::ostream &out)
+annPrintStats	C:\Project\Point_Cloud_Registration\gicp_matlab\perf.cpp	114;"	kind:function	line:114	language:C++	signature:( ANNbool validate)
+annReadDump	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_dump.cpp	253;"	kind:function	line:253	language:C++	file:	signature:( istream &in, ANNtreeType tree_type, ANNpointArray &the_pts, ANNidxArray &the_pidx, int &the_dim, int &the_n_pts, int &the_bkt_size, ANNpoint &the_bnd_box_lo, ANNpoint &the_bnd_box_hi)
+annReadTree	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_dump.cpp	368;"	kind:function	line:368	language:C++	file:	signature:( istream &in, ANNtreeType tree_type, ANNidxArray the_pidx, int &next_idx)
+annResetCounts	C:\Project\Point_Cloud_Registration\gicp_matlab\perf.cpp	83;"	kind:function	line:83	language:C++	signature:()
+annResetStats	C:\Project\Point_Cloud_Registration\gicp_matlab\perf.cpp	69;"	kind:function	line:69	language:C++	signature:(int data_size)
+annSplitBalance	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_util.cpp	360;"	kind:function	line:360	language:C++	signature:( ANNpointArray pa, ANNidxArray pidx, int n, int d, ANNcoord cv)
+annSpread	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_util.cpp	154;"	kind:function	line:154	language:C++	signature:( ANNpointArray pa, ANNidxArray pidx, int n, int d)
+annUpdateStats	C:\Project\Point_Cloud_Registration\gicp_matlab\perf.cpp	93;"	kind:function	line:93	language:C++	signature:()
+ann_FR_search	C:\Project\Point_Cloud_Registration\gicp_matlab\bd_fix_rad_search.cpp	39;"	kind:function	line:39	language:C++	class:ANNbd_shrink	signature:(ANNdist box_dist)
+ann_FR_search	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_fix_rad_search.cpp	100;"	kind:function	line:100	language:C++	class:ANNkd_split	signature:(ANNdist box_dist)
+ann_FR_search	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_fix_rad_search.cpp	148;"	kind:function	line:148	language:C++	class:ANNkd_leaf	signature:(ANNdist box_dist)
+ann_Ncoord_hts	C:\Project\Point_Cloud_Registration\gicp_matlab\perf.cpp	52;"	kind:variable	line:52	language:C++
+ann_Ndata_pts	C:\Project\Point_Cloud_Registration\gicp_matlab\perf.cpp	47;"	kind:variable	line:47	language:C++
+ann_Nfloat_ops	C:\Project\Point_Cloud_Registration\gicp_matlab\perf.cpp	53;"	kind:variable	line:53	language:C++
+ann_Nvisit_lfs	C:\Project\Point_Cloud_Registration\gicp_matlab\perf.cpp	48;"	kind:variable	line:48	language:C++
+ann_Nvisit_pts	C:\Project\Point_Cloud_Registration\gicp_matlab\perf.cpp	51;"	kind:variable	line:51	language:C++
+ann_Nvisit_shr	C:\Project\Point_Cloud_Registration\gicp_matlab\perf.cpp	50;"	kind:variable	line:50	language:C++
+ann_Nvisit_spl	C:\Project\Point_Cloud_Registration\gicp_matlab\perf.cpp	49;"	kind:variable	line:49	language:C++
+ann_average_err	C:\Project\Point_Cloud_Registration\gicp_matlab\perf.cpp	62;"	kind:variable	line:62	language:C++
+ann_coord_hts	C:\Project\Point_Cloud_Registration\gicp_matlab\perf.cpp	59;"	kind:variable	line:59	language:C++
+ann_float_ops	C:\Project\Point_Cloud_Registration\gicp_matlab\perf.cpp	60;"	kind:variable	line:60	language:C++
+ann_pri_search	C:\Project\Point_Cloud_Registration\gicp_matlab\bd_pr_search.cpp	39;"	kind:function	line:39	language:C++	class:ANNbd_shrink	signature:(ANNdist box_dist)
+ann_pri_search	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_pr_search.cpp	139;"	kind:function	line:139	language:C++	class:ANNkd_split	signature:(ANNdist box_dist)
+ann_pri_search	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_pr_search.cpp	181;"	kind:function	line:181	language:C++	class:ANNkd_leaf	signature:(ANNdist box_dist)
+ann_rank_err	C:\Project\Point_Cloud_Registration\gicp_matlab\perf.cpp	63;"	kind:variable	line:63	language:C++
+ann_search	C:\Project\Point_Cloud_Registration\gicp_matlab\bd_search.cpp	39;"	kind:function	line:39	language:C++	class:ANNbd_shrink	signature:(ANNdist box_dist)
+ann_search	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_search.cpp	124;"	kind:function	line:124	language:C++	class:ANNkd_split	signature:(ANNdist box_dist)
+ann_search	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_search.cpp	172;"	kind:function	line:172	language:C++	class:ANNkd_leaf	signature:(ANNdist box_dist)
+ann_visit_lfs	C:\Project\Point_Cloud_Registration\gicp_matlab\perf.cpp	54;"	kind:variable	line:54	language:C++
+ann_visit_nds	C:\Project\Point_Cloud_Registration\gicp_matlab\perf.cpp	57;"	kind:variable	line:57	language:C++
+ann_visit_pts	C:\Project\Point_Cloud_Registration\gicp_matlab\perf.cpp	58;"	kind:variable	line:58	language:C++
+ann_visit_shr	C:\Project\Point_Cloud_Registration\gicp_matlab\perf.cpp	56;"	kind:variable	line:56	language:C++
+ann_visit_spl	C:\Project\Point_Cloud_Registration\gicp_matlab\perf.cpp	55;"	kind:variable	line:55	language:C++
+annkFRSearch	C:\Project\Point_Cloud_Registration\gicp_matlab\brute.cpp	80;"	kind:function	line:80	language:C++	class:ANNbruteForce	signature:( ANNpoint q, ANNdist sqRad, int k, ANNidxArray nn_idx, ANNdistArray dd, double eps)
+annkFRSearch	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_fix_rad_search.cpp	58;"	kind:function	line:58	language:C++	class:ANNkd_tree	signature:( ANNpoint q, ANNdist sqRad, int k, ANNidxArray nn_idx, ANNdistArray dd, double eps)
+annkPriSearch	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_pr_search.cpp	87;"	kind:function	line:87	language:C++	class:ANNkd_tree	signature:( ANNpoint q, int k, ANNidxArray nn_idx, ANNdistArray dd, double eps)
+annkSearch	C:\Project\Point_Cloud_Registration\gicp_matlab\brute.cpp	54;"	kind:function	line:54	language:C++	class:ANNbruteForce	signature:( ANNpoint q, int k, ANNidxArray nn_idx, ANNdistArray dd, double eps)
+annkSearch	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_search.cpp	89;"	kind:function	line:89	language:C++	class:ANNkd_tree	signature:( ANNpoint q, int k, ANNidxArray nn_idx, ANNdistArray dd, double eps)
+apply_state	C:\Project\Point_Cloud_Registration\gicp_matlab\optimize.cpp	216;"	kind:function	line:216	language:C++	class:dgc::gicp::GICPOptimizer	signature:(dgc_transform_t t, gsl_vector const* x)
+avg_ar	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	56;"	kind:member	line:56	language:C++	class:ANNkdStats	access:public
+base_t	C:\Project\Point_Cloud_Registration\gicp_matlab\optimize.h	67;"	kind:member	line:67	language:C++	struct:dgc::gicp::GICPOptData	access:public
+bkt	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_tree.h	94;"	kind:member	line:94	language:C++	class:ANNkd_leaf	access:private
+bkt_size	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	706;"	kind:member	line:706	language:C++	class:ANNkd_tree	access:protected
+bkt_size	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	49;"	kind:member	line:49	language:C++	class:ANNkdStats	access:public
+bnd_box_hi	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	711;"	kind:member	line:711	language:C++	class:ANNkd_tree	access:protected
+bnd_box_lo	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	710;"	kind:member	line:710	language:C++	class:ANNkd_tree	access:protected
+bnds	C:\Project\Point_Cloud_Registration\gicp_matlab\bd_tree.h	64;"	kind:member	line:64	language:C++	class:ANNbd_shrink	access:private
+cd	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNx.h	132;"	kind:member	line:132	language:C++	class:ANNorthHalfSpace	access:public
+cd_bnds	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_tree.h	146;"	kind:member	line:146	language:C++	class:ANNkd_split	access:private
+child	C:\Project\Point_Cloud_Registration\gicp_matlab\bd_tree.h	65;"	kind:member	line:65	language:C++	class:ANNbd_shrink	access:private
+child	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_tree.h	148;"	kind:member	line:148	language:C++	class:ANNkd_split	access:private
+compute_dr	C:\Project\Point_Cloud_Registration\gicp_matlab\optimize.cpp	231;"	kind:function	line:231	language:C++	class:dgc::gicp::GICPOptimizer	signature:(gsl_vector const* x, gsl_matrix const* gsl_temp_mat_r, gsl_vector *g)
+cut_dim	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_tree.h	144;"	kind:member	line:144	language:C++	class:ANNkd_split	access:private
+cut_val	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_tree.h	145;"	kind:member	line:145	language:C++	class:ANNkd_split	access:private
+cv	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNx.h	133;"	kind:member	line:133	language:C++	class:ANNorthHalfSpace	access:public
+debug	C:\Project\Point_Cloud_Registration\gicp_matlab\optimize.h	103;"	kind:member	line:103	language:C++	class:dgc::gicp::GICPOptimizer	access:private
+debug_	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.h	99;"	kind:member	line:99	language:C++	class:dgc::gicp::GICPPointSet	access:private
+depth	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	54;"	kind:member	line:54	language:C++	class:ANNkdStats	access:public
+df	C:\Project\Point_Cloud_Registration\gicp_matlab\bfgs_funcs.cpp	109;"	kind:function	line:109	language:C++	class:dgc::gicp::GICPOptimizer	signature:(const gsl_vector *x, void *params, gsl_vector *g)
+dgc	C:\Project\Point_Cloud_Registration\gicp_matlab\bfgs_funcs.cpp	39;"	kind:namespace	line:39	language:C++	file:
+dgc	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.cpp	52;"	kind:namespace	line:52	language:C++	file:
+dgc	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.h	50;"	kind:namespace	line:50	language:C++
+dgc	C:\Project\Point_Cloud_Registration\gicp_matlab\optimize.cpp	48;"	kind:namespace	line:48	language:C++	file:
+dgc	C:\Project\Point_Cloud_Registration\gicp_matlab\optimize.h	49;"	kind:namespace	line:49	language:C++
+dgc_d2r	C:\Project\Point_Cloud_Registration\gicp_matlab\transform.cpp	38;"	kind:function	line:38	language:C++	file:	signature:(double theta)
+dgc_matrix3d_t	C:\Project\Point_Cloud_Registration\gicp_matlab\scan.h	49;"	kind:typedef	line:49	language:C++	typeref:struct:__anon3
+dgc_next_word	C:\Project\Point_Cloud_Registration\gicp_matlab\transform.cpp	23;"	kind:function	line:23	language:C++	file:	signature:(char *str)
+dgc_pose_p	C:\Project\Point_Cloud_Registration\gicp_matlab\scan.h	66;"	kind:typedef	line:66	language:C++	typeref:struct:__anon6
+dgc_pose_t	C:\Project\Point_Cloud_Registration\gicp_matlab\scan.h	66;"	kind:typedef	line:66	language:C++	typeref:struct:__anon6
+dgc_scan_t	C:\Project\Point_Cloud_Registration\gicp_matlab\scan.h	68;"	kind:class	line:68	language:C++
+dgc_transform_copy	C:\Project\Point_Cloud_Registration\gicp_matlab\transform.cpp	144;"	kind:function	line:144	language:C++	signature:(dgc_transform_t dest, dgc_transform_t src)
+dgc_transform_get_rotation	C:\Project\Point_Cloud_Registration\gicp_matlab\transform.cpp	340;"	kind:function	line:340	language:C++	signature:(dgc_transform_t t, double *x, double *y, double *z)
+dgc_transform_get_translation	C:\Project\Point_Cloud_Registration\gicp_matlab\transform.cpp	332;"	kind:function	line:332	language:C++	signature:(dgc_transform_t t, double *x, double *y, double *z)
+dgc_transform_identity	C:\Project\Point_Cloud_Registration\gicp_matlab\transform.cpp	56;"	kind:function	line:56	language:C++	signature:(dgc_transform_t t)
+dgc_transform_inverse	C:\Project\Point_Cloud_Registration\gicp_matlab\transform.cpp	384;"	kind:function	line:384	language:C++	signature:(dgc_transform_t in, dgc_transform_t out)
+dgc_transform_left_multiply	C:\Project\Point_Cloud_Registration\gicp_matlab\transform.cpp	68;"	kind:function	line:68	language:C++	signature:(dgc_transform_t t1, dgc_transform_t t2)
+dgc_transform_left_multiply_nc	C:\Project\Point_Cloud_Registration\gicp_matlab\transform.cpp	84;"	kind:function	line:84	language:C++	signature:(dgc_transform_t dest, dgc_transform_t src, dgc_transform_t left)
+dgc_transform_point	C:\Project\Point_Cloud_Registration\gicp_matlab\transform.h	44;"	kind:function	line:44	language:C++	signature:(double *x, double *y, double *z, dgc_transform_t t)
+dgc_transform_print	C:\Project\Point_Cloud_Registration\gicp_matlab\transform.cpp	44;"	kind:function	line:44	language:C++	signature:(dgc_transform_t t, const char *str)
+dgc_transform_read	C:\Project\Point_Cloud_Registration\gicp_matlab\transform.cpp	242;"	kind:function	line:242	language:C++	signature:(dgc_transform_t t, const char *filename)
+dgc_transform_read_string	C:\Project\Point_Cloud_Registration\gicp_matlab\transform.cpp	168;"	kind:function	line:168	language:C++	signature:(dgc_transform_t t, char *str)
+dgc_transform_rotate_x	C:\Project\Point_Cloud_Registration\gicp_matlab\transform.cpp	98;"	kind:function	line:98	language:C++	signature:(dgc_transform_t t, double theta)
+dgc_transform_rotate_y	C:\Project\Point_Cloud_Registration\gicp_matlab\transform.cpp	111;"	kind:function	line:111	language:C++	signature:(dgc_transform_t t, double theta)
+dgc_transform_rotate_z	C:\Project\Point_Cloud_Registration\gicp_matlab\transform.cpp	124;"	kind:function	line:124	language:C++	signature:(dgc_transform_t t, double theta)
+dgc_transform_rpy	C:\Project\Point_Cloud_Registration\gicp_matlab\transform.cpp	348;"	kind:function	line:348	language:C++	signature:(dgc_transform_t dest, dgc_transform_t src, double roll, double pitch, double yaw)
+dgc_transform_t	C:\Project\Point_Cloud_Registration\gicp_matlab\transform.h	10;"	kind:typedef	line:10	language:C++
+dgc_transform_translate	C:\Project\Point_Cloud_Registration\gicp_matlab\transform.cpp	137;"	kind:function	line:137	language:C++	signature:(dgc_transform_t t, double x, double y, double z)
+dgc_transform_write	C:\Project\Point_Cloud_Registration\gicp_matlab\transform.cpp	308;"	kind:function	line:308	language:C++	signature:(dgc_transform_t t, const char *filename)
+dgc_vector3d_c_t	C:\Project\Point_Cloud_Registration\gicp_matlab\scan.h	53;"	kind:typedef	line:53	language:C++	typeref:struct:__anon4
+dgc_vector3d_r_t	C:\Project\Point_Cloud_Registration\gicp_matlab\scan.h	57;"	kind:typedef	line:57	language:C++	typeref:struct:__anon5
+dgc_warning	C:\Project\Point_Cloud_Registration\gicp_matlab\transform.cpp	10;"	kind:function	line:10	language:C++	file:	signature:(const char *fmt, ...)
+diagonal	C:\Project\Point_Cloud_Registration\gicp_matlab\scan.h	48;"	kind:member	line:48	language:C++	struct:__anon3	access:public
+dim	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	536;"	kind:member	line:536	language:C++	class:ANNbruteForce	access:private
+dim	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	704;"	kind:member	line:704	language:C++	class:ANNkd_tree	access:protected
+dim	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	47;"	kind:member	line:47	language:C++	class:ANNkdStats	access:public
+dist	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNx.h	151;"	kind:function	line:151	language:C++	class:ANNorthHalfSpace	access:public	signature:(ANNpoint q) const
+dump	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_dump.cpp	134;"	kind:function	line:134	language:C++	class:ANNkd_split	signature:( ostream &out)
+dump	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_dump.cpp	144;"	kind:function	line:144	language:C++	class:ANNkd_leaf	signature:( ostream &out)
+dump	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_dump.cpp	159;"	kind:function	line:159	language:C++	class:ANNbd_shrink	signature:( ostream &out)
+empty	C:\Project\Point_Cloud_Registration\gicp_matlab\pr_queue.h	75;"	kind:function	line:75	language:C++	class:ANNpr_queue	access:public	signature:()
+epsilon_	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.h	96;"	kind:member	line:96	language:C++	class:dgc::gicp::GICPPointSet	access:private
+epsilon_rot_	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.h	97;"	kind:member	line:97	language:C++	class:dgc::gicp::GICPPointSet	access:private
+extr_min	C:\Project\Point_Cloud_Registration\gicp_matlab\pr_queue.h	102;"	kind:function	line:102	language:C++	class:ANNpr_queue	access:public	signature:( PQkey &kv, PQinfo &inf)
+f	C:\Project\Point_Cloud_Registration\gicp_matlab\bfgs_funcs.cpp	42;"	kind:function	line:42	language:C++	class:dgc::gicp::GICPOptimizer	signature:(const gsl_vector *x, void *params)
+fair_split	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_split.cpp	243;"	kind:function	line:243	language:C++	signature:( ANNpointArray pa, ANNidxArray pidx, const ANNorthRect &bnds, int n, int dim, int &cut_dim, ANNcoord &cut_val, int &n_lo)
+fdf	C:\Project\Point_Cloud_Registration\gicp_matlab\bfgs_funcs.cpp	189;"	kind:function	line:189	language:C++	class:dgc::gicp::GICPOptimizer	signature:(const gsl_vector *x, void *params, double * f, gsl_vector *g)
+getPointCloud	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp_matlab.cpp	156;"	kind:function	line:156	language:C++	file:	signature:(const double* in_mtx, int num_of_points, GICPPointSet *out_set)
+getStats	C:\Project\Point_Cloud_Registration\gicp_matlab\bd_tree.cpp	71;"	kind:function	line:71	language:C++	class:ANNbd_shrink	signature:( int dim, ANNkdStats &st, ANNorthRect &bnd_box)
+getStats	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_tree.cpp	147;"	kind:function	line:147	language:C++	class:ANNkd_leaf	signature:( int dim, ANNkdStats &st, ANNorthRect &bnd_box)
+getStats	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_tree.cpp	160;"	kind:function	line:160	language:C++	class:ANNkd_split	signature:( int dim, ANNkdStats &st, ANNorthRect &bnd_box)
+getStats	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_tree.cpp	191;"	kind:function	line:191	language:C++	class:ANNkd_tree	signature:( ANNkdStats &st)
+gicp	C:\Project\Point_Cloud_Registration\gicp_matlab\bfgs_funcs.cpp	40;"	kind:namespace	line:40	language:C++	namespace:dgc	file:
+gicp	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.cpp	53;"	kind:namespace	line:53	language:C++	namespace:dgc	file:
+gicp	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.h	51;"	kind:namespace	line:51	language:C++	namespace:dgc
+gicp	C:\Project\Point_Cloud_Registration\gicp_matlab\optimize.cpp	49;"	kind:namespace	line:49	language:C++	namespace:dgc	file:
+gicp	C:\Project\Point_Cloud_Registration\gicp_matlab\optimize.h	50;"	kind:namespace	line:50	language:C++	namespace:dgc
+gicp_epsilon_	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.h	98;"	kind:member	line:98	language:C++	class:dgc::gicp::GICPPointSet	access:private
+gicp_mat_t	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.h	52;"	kind:typedef	line:52	language:C++	namespace:dgc::gicp
+gsl_minimizer	C:\Project\Point_Cloud_Registration\gicp_matlab\optimize.h	98;"	kind:member	line:98	language:C++	class:dgc::gicp::GICPOptimizer	access:private
+hi	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNx.h	92;"	kind:member	line:92	language:C++	class:ANNorthRect	access:public
+in	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNx.h	145;"	kind:function	line:145	language:C++	class:ANNorthHalfSpace	access:public	signature:(ANNpoint q) const
+info	C:\Project\Point_Cloud_Registration\gicp_matlab\pr_queue.h	58;"	kind:member	line:58	language:C++	struct:ANNpr_queue::pq_node	access:public
+info	C:\Project\Point_Cloud_Registration\gicp_matlab\pr_queue_k.h	69;"	kind:member	line:69	language:C++	struct:ANNmin_k::mk_node	access:public
+insert	C:\Project\Point_Cloud_Registration\gicp_matlab\pr_queue.h	84;"	kind:function	line:84	language:C++	class:ANNpr_queue	access:public	signature:( PQkey kv, PQinfo inf)
+insert	C:\Project\Point_Cloud_Registration\gicp_matlab\pr_queue_k.h	99;"	kind:function	line:99	language:C++	class:ANNmin_k	access:public	signature:( PQKkey kv, PQKinfo inf)
+inside	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.cpp	154;"	kind:function	line:154	language:C++	class:ANNorthRect	signature:(int dim, ANNpoint p)
+iter	C:\Project\Point_Cloud_Registration\gicp_matlab\optimize.h	101;"	kind:member	line:101	language:C++	class:dgc::gicp::GICPOptimizer	access:private
+ith_smallest_info	C:\Project\Point_Cloud_Registration\gicp_matlab\pr_queue_k.h	96;"	kind:function	line:96	language:C++	class:ANNmin_k	access:public	signature:(int i)
+ith_smallest_key	C:\Project\Point_Cloud_Registration\gicp_matlab\pr_queue_k.h	93;"	kind:function	line:93	language:C++	class:ANNmin_k	access:public	signature:(int i)
+k	C:\Project\Point_Cloud_Registration\gicp_matlab\pr_queue_k.h	72;"	kind:member	line:72	language:C++	class:ANNmin_k	access:private
+kd_split	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_split.cpp	44;"	kind:function	line:44	language:C++	signature:( ANNpointArray pa, ANNidxArray pidx, const ANNorthRect &bnds, int n, int dim, int &cut_dim, ANNcoord &cut_val, int &n_lo)
+kdtree_	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.h	93;"	kind:member	line:93	language:C++	class:dgc::gicp::GICPPointSet	access:private
+kdtree_done_	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.h	102;"	kind:member	line:102	language:C++	class:dgc::gicp::GICPPointSet	access:private
+kdtree_points_	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.h	92;"	kind:member	line:92	language:C++	class:dgc::gicp::GICPPointSet	access:private
+key	C:\Project\Point_Cloud_Registration\gicp_matlab\pr_queue.h	57;"	kind:member	line:57	language:C++	struct:ANNpr_queue::pq_node	access:public
+key	C:\Project\Point_Cloud_Registration\gicp_matlab\pr_queue_k.h	68;"	kind:member	line:68	language:C++	struct:ANNmin_k::mk_node	access:public
+lo	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNx.h	91;"	kind:member	line:91	language:C++	class:ANNorthRect	access:public
+load	C:\Project\Point_Cloud_Registration\gicp_matlab\scan.cpp	70;"	kind:function	line:70	language:C++	class:dgc_scan_t	signature:(const char *filename)
+mat	C:\Project\Point_Cloud_Registration\gicp_matlab\scan.h	45;"	kind:member	line:45	language:C++	struct:__anon3	access:public
+mat_inner_prod	C:\Project\Point_Cloud_Registration\gicp_matlab\optimize.cpp	203;"	kind:function	line:203	language:C++	class:dgc::gicp::GICPOptimizer	signature:(gsl_matrix const* mat1, gsl_matrix const* mat2)
+matrices_done_	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.h	101;"	kind:member	line:101	language:C++	class:dgc::gicp::GICPPointSet	access:private
+max	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	116;"	kind:function	line:116	language:C++	class:ANNsampStat	access:public	signature:()
+maxVal	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	89;"	kind:member	line:89	language:C++	class:ANNsampStat	access:private
+max_iter	C:\Project\Point_Cloud_Registration\gicp_matlab\optimize.h	100;"	kind:member	line:100	language:C++	class:dgc::gicp::GICPOptimizer	access:private
+max_iteration_	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.h	94;"	kind:member	line:94	language:C++	class:dgc::gicp::GICPPointSet	access:private
+max_iteration_inner_	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.h	95;"	kind:member	line:95	language:C++	class:dgc::gicp::GICPPointSet	access:private
+max_key	C:\Project\Point_Cloud_Registration\gicp_matlab\pr_queue_k.h	90;"	kind:function	line:90	language:C++	class:ANNmin_k	access:public	signature:()
+max_size	C:\Project\Point_Cloud_Registration\gicp_matlab\pr_queue.h	61;"	kind:member	line:61	language:C++	class:ANNpr_queue	access:private
+mean	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	110;"	kind:function	line:110	language:C++	class:ANNsampStat	access:public	signature:()
+merge	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_tree.cpp	133;"	kind:function	line:133	language:C++	class:ANNkdStats	signature:(const ANNkdStats &st)
+mexFunction	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp_matlab.cpp	25;"	kind:function	line:25	language:C++	signature:(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
+midpt_split	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_split.cpp	76;"	kind:function	line:76	language:C++	signature:( ANNpointArray pa, ANNidxArray pidx, const ANNorthRect &bnds, int n, int dim, int &cut_dim, ANNcoord &cut_val, int &n_lo)
+min	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	115;"	kind:function	line:115	language:C++	class:ANNsampStat	access:public	signature:()
+minVal	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	89;"	kind:member	line:89	language:C++	class:ANNsampStat	access:private
+mk	C:\Project\Point_Cloud_Registration\gicp_matlab\pr_queue_k.h	74;"	kind:member	line:74	language:C++	class:ANNmin_k	access:private
+mk_node	C:\Project\Point_Cloud_Registration\gicp_matlab\pr_queue_k.h	67;"	kind:struct	line:67	language:C++	class:ANNmin_k	access:private
+mutex_	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.h	103;"	kind:member	line:103	language:C++	class:dgc::gicp::GICPPointSet	access:private
+n	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	86;"	kind:member	line:86	language:C++	class:ANNsampStat	access:private
+n	C:\Project\Point_Cloud_Registration\gicp_matlab\pr_queue.h	60;"	kind:member	line:60	language:C++	class:ANNpr_queue	access:private
+n	C:\Project\Point_Cloud_Registration\gicp_matlab\pr_queue_k.h	73;"	kind:member	line:73	language:C++	class:ANNmin_k	access:private
+nPoints	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	565;"	kind:function	line:565	language:C++	class:ANNbruteForce	access:public	signature:()
+nPoints	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	763;"	kind:function	line:763	language:C++	class:ANNkd_tree	access:public	signature:()
+n_bnds	C:\Project\Point_Cloud_Registration\gicp_matlab\bd_tree.h	63;"	kind:member	line:63	language:C++	class:ANNbd_shrink	access:private
+n_lf	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	50;"	kind:member	line:50	language:C++	class:ANNkdStats	access:public
+n_pts	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	537;"	kind:member	line:537	language:C++	class:ANNbruteForce	access:private
+n_pts	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	705;"	kind:member	line:705	language:C++	class:ANNkd_tree	access:protected
+n_pts	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	48;"	kind:member	line:48	language:C++	class:ANNkdStats	access:public
+n_pts	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_tree.h	93;"	kind:member	line:93	language:C++	class:ANNkd_leaf	access:private
+n_shr	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	53;"	kind:member	line:53	language:C++	class:ANNkdStats	access:public
+n_spl	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	52;"	kind:member	line:52	language:C++	class:ANNkdStats	access:public
+n_tl	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	51;"	kind:member	line:51	language:C++	class:ANNkdStats	access:public
+nn_indecies	C:\Project\Point_Cloud_Registration\gicp_matlab\optimize.h	65;"	kind:member	line:65	language:C++	struct:dgc::gicp::GICPOptData	access:public
+non_empty	C:\Project\Point_Cloud_Registration\gicp_matlab\pr_queue.h	78;"	kind:function	line:78	language:C++	class:ANNpr_queue	access:public	signature:()
+norms	C:\Project\Point_Cloud_Registration\gicp_matlab\scan.h	71;"	kind:member	line:71	language:C++	class:dgc_scan_t	access:public
+num_matches	C:\Project\Point_Cloud_Registration\gicp_matlab\optimize.h	68;"	kind:member	line:68	language:C++	struct:dgc::gicp::GICPOptData	access:public
+operator +=	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	101;"	kind:function	line:101	language:C++	class:ANNsampStat	access:public	signature:(double x)
+operator []	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.h	84;"	kind:function	line:84	language:C++	class:dgc::gicp::GICPPointSet	access:public	signature:(int i)
+operator []	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.h	85;"	kind:function	line:85	language:C++	class:dgc::gicp::GICPPointSet	access:public	signature:(int i) const
+out	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNx.h	148;"	kind:function	line:148	language:C++	class:ANNorthHalfSpace	access:public	signature:(ANNpoint q) const
+p1	C:\Project\Point_Cloud_Registration\gicp_matlab\optimize.h	63;"	kind:member	line:63	language:C++	struct:dgc::gicp::GICPOptData	access:public
+p2	C:\Project\Point_Cloud_Registration\gicp_matlab\optimize.h	64;"	kind:member	line:64	language:C++	struct:dgc::gicp::GICPOptData	access:public
+pidx	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	708;"	kind:member	line:708	language:C++	class:ANNkd_tree	access:protected
+pitch	C:\Project\Point_Cloud_Registration\gicp_matlab\scan.h	64;"	kind:member	line:64	language:C++	struct:__anon6	access:public
+point_	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.h	91;"	kind:member	line:91	language:C++	class:dgc::gicp::GICPPointSet	access:private
+points	C:\Project\Point_Cloud_Registration\gicp_matlab\scan.h	70;"	kind:member	line:70	language:C++	class:dgc_scan_t	access:public
+pose	C:\Project\Point_Cloud_Registration\gicp_matlab\scan.h	72;"	kind:member	line:72	language:C++	class:dgc_scan_t	access:public
+pq	C:\Project\Point_Cloud_Registration\gicp_matlab\pr_queue.h	62;"	kind:member	line:62	language:C++	class:ANNpr_queue	access:private
+pq_node	C:\Project\Point_Cloud_Registration\gicp_matlab\pr_queue.h	56;"	kind:struct	line:56	language:C++	class:ANNpr_queue	access:private
+print	C:\Project\Point_Cloud_Registration\gicp_matlab\bd_tree.cpp	41;"	kind:function	line:41	language:C++	class:ANNbd_shrink	signature:( int level, ostream &out)
+print	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_tree.cpp	67;"	kind:function	line:67	language:C++	class:ANNkd_split	signature:( int level, ostream &out)
+print	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_tree.cpp	82;"	kind:function	line:82	language:C++	class:ANNkd_leaf	signature:( int level, ostream &out)
+print_gsl_matrix	C:\Project\Point_Cloud_Registration\gicp_matlab\optimize.h	51;"	kind:function	line:51	language:C++	namespace:dgc::gicp	signature:(gsl_matrix *mat, const char * name)
+print_one_stat	C:\Project\Point_Cloud_Registration\gicp_matlab\perf.cpp	105;"	kind:function	line:105	language:C++	signature:(char *title, ANNsampStat s, double div)
+project	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNx.h	160;"	kind:function	line:160	language:C++	class:ANNorthHalfSpace	access:public	signature:(ANNpoint &q)
+pts	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	538;"	kind:member	line:538	language:C++	class:ANNbruteForce	access:private
+pts	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	707;"	kind:member	line:707	language:C++	class:ANNkd_tree	access:protected
+range	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.h	56;"	kind:member	line:56	language:C++	struct:dgc::gicp::GICPPoint	access:public
+rbd_tree	C:\Project\Point_Cloud_Registration\gicp_matlab\bd_tree.cpp	335;"	kind:function	line:335	language:C++	signature:( ANNpointArray pa, ANNidxArray pidx, int n, int dim, int bsp, ANNorthRect &bnd_box, ANNkd_splitter splitter, ANNshrinkRule shrink)
+reset	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	59;"	kind:function	line:59	language:C++	class:ANNkdStats	access:public	signature:(int d=0, int n=0, int bs=0)
+reset	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	91;"	kind:function	line:91	language:C++	class:ANNsampStat	access:public	signature:()
+reset	C:\Project\Point_Cloud_Registration\gicp_matlab\pr_queue.h	81;"	kind:function	line:81	language:C++	class:ANNpr_queue	access:public	signature:()
+rkd_tree	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_tree.cpp	314;"	kind:function	line:314	language:C++	signature:( ANNpointArray pa, ANNidxArray pidx, int n, int dim, int bsp, ANNorthRect &bnd_box, ANNkd_splitter splitter)
+roll	C:\Project\Point_Cloud_Registration\gicp_matlab\scan.h	63;"	kind:member	line:63	language:C++	struct:__anon6	access:public
+root	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	709;"	kind:member	line:709	language:C++	class:ANNkd_tree	access:protected
+samples	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	108;"	kind:function	line:108	language:C++	class:ANNsampStat	access:public	signature:()
+save	C:\Project\Point_Cloud_Registration\gicp_matlab\scan.cpp	43;"	kind:function	line:43	language:C++	class:dgc_scan_t	signature:(const char* filename)
+sd	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNx.h	134;"	kind:member	line:134	language:C++	class:ANNorthHalfSpace	access:public
+selectDecomp	C:\Project\Point_Cloud_Registration\gicp_matlab\bd_tree.cpp	279;"	kind:function	line:279	language:C++	signature:( ANNpointArray pa, ANNidxArray pidx, int n, int dim, const ANNorthRect &bnd_box, ANNkd_splitter splitter, ANNshrinkRule shrink, ANNorthRect &inner_box)
+setLowerBound	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNx.h	154;"	kind:function	line:154	language:C++	class:ANNorthHalfSpace	access:public	signature:(int d, ANNpoint p)
+setUpperBound	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNx.h	157;"	kind:function	line:157	language:C++	class:ANNorthHalfSpace	access:public	signature:(int d, ANNpoint p)
+sl_fair_split	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_split.cpp	346;"	kind:function	line:346	language:C++	signature:( ANNpointArray pa, ANNidxArray pidx, const ANNorthRect &bnds, int n, int dim, int &cut_dim, ANNcoord &cut_val, int &n_lo)
+sl_midpt_split	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_split.cpp	146;"	kind:function	line:146	language:C++	signature:( ANNpointArray pa, ANNidxArray pidx, const ANNorthRect &bnds, int n, int dim, int &cut_dim, ANNcoord &cut_val, int &n_lo)
+solve_rotation	C:\Project\Point_Cloud_Registration\gicp_matlab\optimize.h	69;"	kind:member	line:69	language:C++	struct:dgc::gicp::GICPOptData	access:public
+solve_rotation_	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.h	100;"	kind:member	line:100	language:C++	class:dgc::gicp::GICPPointSet	access:private
+status	C:\Project\Point_Cloud_Registration\gicp_matlab\optimize.h	102;"	kind:member	line:102	language:C++	class:dgc::gicp::GICPOptimizer	access:private
+stdDev	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	113;"	kind:function	line:113	language:C++	class:ANNsampStat	access:public	signature:()
+sum	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	87;"	kind:member	line:87	language:C++	class:ANNsampStat	access:private
+sum2	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	88;"	kind:member	line:88	language:C++	class:ANNsampStat	access:private
+sum_ar	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNperf.h	55;"	kind:member	line:55	language:C++	class:ANNkdStats	access:public
+symmetric	C:\Project\Point_Cloud_Registration\gicp_matlab\scan.h	47;"	kind:member	line:47	language:C++	struct:__anon3	access:public
+theDim	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	562;"	kind:function	line:562	language:C++	class:ANNbruteForce	access:public	signature:()
+theDim	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	760;"	kind:function	line:760	language:C++	class:ANNkd_tree	access:public	signature:()
+thePoints	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	568;"	kind:function	line:568	language:C++	class:ANNbruteForce	access:public	signature:()
+thePoints	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	766;"	kind:function	line:766	language:C++	class:ANNkd_tree	access:public	signature:()
+transpose	C:\Project\Point_Cloud_Registration\gicp_matlab\scan.h	46;"	kind:member	line:46	language:C++	struct:__anon3	access:public
+tryCentroidShrink	C:\Project\Point_Cloud_Registration\gicp_matlab\bd_tree.cpp	236;"	kind:function	line:236	language:C++	signature:( ANNpointArray pa, ANNidxArray pidx, int n, int dim, const ANNorthRect &bnd_box, ANNkd_splitter splitter, ANNorthRect &inner_box)
+trySimpleShrink	C:\Project\Point_Cloud_Registration\gicp_matlab\bd_tree.cpp	181;"	kind:function	line:181	language:C++	signature:( ANNpointArray pa, ANNidxArray pidx, int n, int dim, const ANNorthRect &bnd_box, ANNorthRect &inner_box)
+vec	C:\Project\Point_Cloud_Registration\gicp_matlab\scan.h	52;"	kind:member	line:52	language:C++	struct:__anon4	access:public
+vec	C:\Project\Point_Cloud_Registration\gicp_matlab\scan.h	56;"	kind:member	line:56	language:C++	struct:__anon5	access:public
+verifyInput	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp_matlab.cpp	83;"	kind:function	line:83	language:C++	file:	signature:(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
+x	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.h	55;"	kind:member	line:55	language:C++	struct:dgc::gicp::GICPPoint	access:public
+x	C:\Project\Point_Cloud_Registration\gicp_matlab\optimize.h	99;"	kind:member	line:99	language:C++	class:dgc::gicp::GICPOptimizer	access:private
+x	C:\Project\Point_Cloud_Registration\gicp_matlab\scan.h	60;"	kind:member	line:60	language:C++	struct:__anon6	access:public
+y	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.h	55;"	kind:member	line:55	language:C++	struct:dgc::gicp::GICPPoint	access:public
+y	C:\Project\Point_Cloud_Registration\gicp_matlab\scan.h	61;"	kind:member	line:61	language:C++	struct:__anon6	access:public
+yaw	C:\Project\Point_Cloud_Registration\gicp_matlab\scan.h	65;"	kind:member	line:65	language:C++	struct:__anon6	access:public
+z	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.h	55;"	kind:member	line:55	language:C++	struct:dgc::gicp::GICPPoint	access:public
+z	C:\Project\Point_Cloud_Registration\gicp_matlab\scan.h	62;"	kind:member	line:62	language:C++	struct:__anon6	access:public
+~ANNbd_shrink	C:\Project\Point_Cloud_Registration\gicp_matlab\bd_tree.h	78;"	kind:function	line:78	language:C++	class:ANNbd_shrink	access:public	signature:()
+~ANNbruteForce	C:\Project\Point_Cloud_Registration\gicp_matlab\brute.cpp	52;"	kind:function	line:52	language:C++	class:ANNbruteForce	signature:()
+~ANNkd_leaf	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_tree.h	104;"	kind:function	line:104	language:C++	class:ANNkd_leaf	access:public	signature:()
+~ANNkd_node	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_tree.h	48;"	kind:function	line:48	language:C++	class:ANNkd_node	access:public	implementation:virtual	signature:()
+~ANNkd_split	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_tree.h	164;"	kind:function	line:164	language:C++	class:ANNkd_split	access:public	signature:()
+~ANNkd_tree	C:\Project\Point_Cloud_Registration\gicp_matlab\kd_tree.cpp	209;"	kind:function	line:209	language:C++	class:ANNkd_tree	signature:()
+~ANNmin_k	C:\Project\Point_Cloud_Registration\gicp_matlab\pr_queue_k.h	84;"	kind:function	line:84	language:C++	class:ANNmin_k	access:public	signature:()
+~ANNorthRect	C:\Project\Point_Cloud_Registration\gicp_matlab\ANNx.h	111;"	kind:function	line:111	language:C++	class:ANNorthRect	access:public	signature:()
+~ANNpointSet	C:\Project\Point_Cloud_Registration\gicp_matlab\ANN.h	490;"	kind:function	line:490	language:C++	class:ANNpointSet	access:public	implementation:virtual	signature:()
+~ANNpr_queue	C:\Project\Point_Cloud_Registration\gicp_matlab\pr_queue.h	72;"	kind:function	line:72	language:C++	class:ANNpr_queue	access:public	signature:()
+~GICPOptimizer	C:\Project\Point_Cloud_Registration\gicp_matlab\optimize.cpp	70;"	kind:function	line:70	language:C++	class:dgc::gicp::GICPOptimizer	signature:()
+~GICPPointSet	C:\Project\Point_Cloud_Registration\gicp_matlab\gicp.cpp	72;"	kind:function	line:72	language:C++	class:dgc::gicp::GICPPointSet	signature:()

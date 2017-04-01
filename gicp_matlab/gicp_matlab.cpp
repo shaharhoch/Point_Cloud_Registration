@@ -5,7 +5,7 @@
  *
  * The calling syntax is:
  *
- *		reg_mtx = arrayProduct(local_mtx, global_mtx, epsilon, d_max)
+ *		reg_mtx = arrayProduct(local_mtx, global_mtx, d_max, global_epsilon, local_epsilon_0, local_epsilon_1, pov)
  *
  * This is a MEX file for MATLAB.
 */
@@ -26,18 +26,30 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
 {  
     verifyInput(nlhs, plhs, nrhs, prhs);
     
-    double epsilon = mxGetScalar(prhs[2]);
-    double d_max = mxGetScalar(prhs[3]);
+    double d_max = mxGetScalar(prhs[2]);
+	double global_epsilon = mxGetScalar(prhs[3]);
+	double local_epsilon_0 = mxGetScalar(prhs[4]);
+	double local_epsilon_1 = mxGetScalar(prhs[5]);
+	
+	//Get pov vector
+	double p_pov[3]; 
+	double *p_pov_in; 
+	p_pov_in = mxGetPr(prhs[6]);
+	for(int i=0; i<3; i++)
+	{
+		p_pov[i] = *(p_pov_in+i);
+	}
     
     // Initialzie point clouds
     GICPPointSet local_cloud, global_cloud;
     getPointCloud(mxGetPr(prhs[0]), mxGetM(prhs[0]), &local_cloud);
     getPointCloud(mxGetPr(prhs[1]), mxGetM(prhs[1]), &global_cloud);
     
-    local_cloud.SetGICPEpsilon(epsilon);
-    global_cloud.SetGICPEpsilon(epsilon);  
+    local_cloud.SetGICPEpsilon(global_epsilon);
+    global_cloud.SetGICPEpsilon(global_epsilon);  
     local_cloud.BuildKDTree();
-    local_cloud.ComputeMatrices();
+	//local_cloud.ComputeMatricesChangingEpsilon(local_epsilon_0, local_epsilon_1, p_pov);
+	local_cloud.ComputeMatrices();
 	//local_cloud.ComputeMatricesDiag(0.0); 
     global_cloud.BuildKDTree();
     global_cloud.ComputeMatrices();
@@ -63,17 +75,17 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
     double* iter_out = mxGetPr(plhs[1]); 
     *iter_out = (double)(iterations);
 	
-	local_cloud.SaveMatrices("local_matrix.txt");
 	global_cloud.SaveMatrices("global_matrix.txt");
+	local_cloud.SaveMatrices("local_matrix.txt");
 }
 
 // This function verifies the correctness of the inputs from matlab
 static void verifyInput(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
 {
     // Verify number of inputs
-    if(nrhs != 4) 
+    if(nrhs != 7) 
     {
-        mexErrMsgIdAndTxt("MyToolbox:arrayProduct:nrhs", "Four inputs required.");
+        mexErrMsgIdAndTxt("MyToolbox:arrayProduct:nrhs", "7 inputs required.");
     }
     
     // Verify input 1's type
@@ -101,13 +113,36 @@ static void verifyInput(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs
     // Verify input 3's type
     if( !mxIsDouble(prhs[2]) || mxIsComplex(prhs[2]) || mxGetNumberOfElements(prhs[2]) != 1 ) 
     {
-        mexErrMsgIdAndTxt("MyToolbox:arrayProduct:notScalar", "Input epsilon must be a scalar.");
+        mexErrMsgIdAndTxt("MyToolbox:arrayProduct:notScalar", "Input d_max must be a scalar.");
     }
     
-    // Verify input 3's type
+    // Verify input 4's type
     if( !mxIsDouble(prhs[3]) || mxIsComplex(prhs[3]) || mxGetNumberOfElements(prhs[3]) != 1 ) 
     {
-        mexErrMsgIdAndTxt("MyToolbox:arrayProduct:notScalar", "Input d_max must be a scalar.");
+        mexErrMsgIdAndTxt("MyToolbox:arrayProduct:notScalar", "Input global_epsilon must be a scalar.");
+    }
+	
+	// Verify input 5's type
+    if( !mxIsDouble(prhs[4]) || mxIsComplex(prhs[4]) || mxGetNumberOfElements(prhs[4]) != 1 ) 
+    {
+        mexErrMsgIdAndTxt("MyToolbox:arrayProduct:notScalar", "Input local_epsilon_0 must be a scalar.");
+    }
+	
+	// Verify input 6's type
+    if( !mxIsDouble(prhs[5]) || mxIsComplex(prhs[5]) || mxGetNumberOfElements(prhs[5]) != 1 ) 
+    {
+        mexErrMsgIdAndTxt("MyToolbox:arrayProduct:notScalar", "Input local_epsilon_1 must be a scalar.");
+    }
+	
+	// Verify input 7's type
+    if( !mxIsDouble(prhs[6]) || mxIsComplex(prhs[6])) 
+    {
+        mexErrMsgIdAndTxt("MyToolbox:arrayProduct:notDouble", "Pov input matrix must be type double.");
+    }
+    
+    if((mxGetM(prhs[6]) != 3) || (mxGetN(prhs[6]) != 1)) 
+    {
+        mexErrMsgIdAndTxt("MyToolbox:arrayProduct:InvalidMtxSize", "pov input must be a vector of size 3");
     }
 }
 

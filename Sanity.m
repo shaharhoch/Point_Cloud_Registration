@@ -52,7 +52,7 @@ gicp.name = 'Generalized ICP' ;
 gicp.errors = []; 
 gicp.num_iter = [];
 gicp.function_handle = @(local, global_c) gicpWrapper(local, global_c,...
-    GICP_EPSILON, MAX_INLINER_DISTANCE);
+    MAX_INLINER_DISTANCE, GICP_EPSILON);
 
 ICP_METHODS = {no_icp, icp_point_to_point, icp_point_to_plane, gicp}; 
 %ICP_METHODS = {gicp, no_icp};

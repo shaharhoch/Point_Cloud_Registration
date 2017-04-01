@@ -503,5 +503,132 @@ namespace dgc {
 		  }
 		}
 	}
+	
+	void GICPPointSet::ComputeMatricesChangingEpsilon(double epsilon_0, double epsilon_1, double pov[3]) {
+      pthread_mutex_lock(&mutex_);
+      if(kdtree_ == NULL) {
+		return;
+      }
+      if(matrices_done_) {
+		return;
+      }
+      matrices_done_ = true;
+      pthread_mutex_unlock(&mutex_);
+
+      int N  = NumPoints();
+      int K = 20; // number of closest points to use for local covariance estimate
+      double mean[3];
+      
+      ANNpoint query_point = annAllocPt(3);
+      
+      ANNdist *nn_dist_sq = new ANNdist[K];
+      if(nn_dist_sq == NULL) {
+	//TODO: handle this
+      }      
+      ANNidx *nn_indecies = new ANNidx[K];
+      if(nn_indecies == NULL) {
+	//TODO: handle this
+      }
+      gsl_vector *work = gsl_vector_alloc(3);
+      if(work == NULL) {
+	//TODO: handle
+      }
+      gsl_vector *gsl_singulars = gsl_vector_alloc(3);
+      if(gsl_singulars == NULL) {
+	//TODO: handle
+      }
+      gsl_matrix *gsl_v_mat = gsl_matrix_alloc(3, 3);
+      if(gsl_v_mat == NULL) {
+	//TODO: handle
+      }
+      
+      for(int i = 0; i < N; i++) {
+	query_point[0] = point_[i].x;
+	query_point[1] = point_[i].y;
+	query_point[2] = point_[i].z;
+	
+	gicp_mat_t &cov = point_[i].C;
+	// zero out the cov and mean
+	for(int k = 0; k < 3; k++) {
+	  mean[k] = 0.;
+	  for(int l = 0; l < 3; l++) {
+	    cov[k][l] = 0.;
+	  }
+	}
+	
+	kdtree_->annkSearch(query_point, K, nn_indecies, nn_dist_sq, 0.0);
+	
+	// find the covariance matrix
+	for(int j = 0; j < K; j++) {
+	  GICPPoint &pt = point_[nn_indecies[j]];
+	  
+	  mean[0] += pt.x;
+	  mean[1] += pt.y;
+	  mean[2] += pt.z;
+
+	  cov[0][0] += pt.x*pt.x;
+	  
+	  cov[1][0] += pt.y*pt.x;
+	  cov[1][1] += pt.y*pt.y;
+	  
+	  cov[2][0] += pt.z*pt.x;
+	  cov[2][1] += pt.z*pt.y;
+	  cov[2][2] += pt.z*pt.z;	  
+	}
+	
+	mean[0] /= (double)K;
+	mean[1] /= (double)K;
+	mean[2] /= (double)K;
+	// get the actual covariance
+	for(int k = 0; k < 3; k++) {
+	  for(int l = 0; l <= k; l++) {
+	    cov[k][l] /= (double)K;
+	    cov[k][l] -= mean[k]*mean[l];
+	    cov[l][k] = cov[k][l];
+	  }
+	}
+	
+	// compute the SVD
+	gsl_matrix_view gsl_cov = gsl_matrix_view_array(&cov[0][0], 3, 3);
+	gsl_linalg_SV_decomp(&gsl_cov.matrix, gsl_v_mat, gsl_singulars, work);
+	
+	// zero out the cov matrix, since we know U = V since C is symmetric
+	for(int k = 0; k < 3; k++) {
+	  for(int l = 0; l < 3; l++) {
+	    cov[k][l] = 0;
+	  }
+	}
+	
+	// reconstitute the covariance matrix with modified singular values using the column vectors in V.
+	for(int k = 0; k < 3; k++) {
+	  gsl_vector_view col = gsl_matrix_column(gsl_v_mat, k);
+
+	  double v = 1.; // biggest 2 singular values replaced by 1
+	  if(k == 2) {   // smallest singular value replaced by gicp_epsilon
+		double pov_dist_sqruared = (query_point[0]-pov[0])*(query_point[0]-pov[0]) + (query_point[1]-pov[1])*(query_point[1]-pov[1]) + (query_point[2]-pov[2])*(query_point[2]-pov[2]);
+	    v = epsilon_0+epsilon_1*pov_dist_sqruared;
+	  }
+	  
+	  gsl_blas_dger(v, &col.vector, &col.vector, &gsl_cov.matrix); 
+	}
+      }
+
+      if(nn_dist_sq != NULL) {
+	delete [] nn_dist_sq;
+      }
+      if(nn_indecies != NULL) {
+	delete [] nn_indecies;
+      }
+      if(work != NULL) {
+	gsl_vector_free(work);
+      }
+      if(gsl_v_mat != NULL) {
+	gsl_matrix_free(gsl_v_mat);
+      }
+      if(gsl_singulars != NULL) {
+	gsl_vector_free(gsl_singulars);
+      }
+       query_point;
+    }
   }
 }
