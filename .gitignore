@@ -1,5 +1,8 @@
-/Database
 /Results
 *.mexw64
 *.tfm
 *.txt
+/GICP_VS/GICP_VS/Debug
+/GICP_VS/GICP_VS/GICP_VS/x64
+/GICP_VS/GICP_VS/GICP_VS/Debug
+/GICP_VS/GICP_VS/.vs/
