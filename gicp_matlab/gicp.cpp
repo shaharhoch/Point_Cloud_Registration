@@ -479,6 +479,29 @@ namespace dgc {
 	}
       }
       out.close();      
-    }    
+    } 
+
+	void GICPPointSet::ComputeMatricesDiag(double diag_val)
+	{
+		int n = NumPoints(); 
+		
+		for(int i = 0; i < n; i++) 
+		{
+		  for(int k = 0; k < 3; k++) 
+		  {
+			for(int l = 0; l < 3; l++) 
+			{
+			  if(l == k)
+			  {
+				  point_[i].C[k][l] = diag_val;
+			  }
+			  else
+			  {
+				  point_[i].C[k][l] = 0.0;
+			  }
+			}
+		  }
+		}
+	}
   }
 }

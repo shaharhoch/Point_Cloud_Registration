@@ -1,3 +1,7 @@
+close all
+clear all
+clc
+
 save_cd = pwd(); 
 cd(fileparts(mfilename('fullpath'))); 
 mex -setup:mex_C++_mingw-w64.xml C++

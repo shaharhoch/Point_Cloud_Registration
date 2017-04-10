@@ -1,3 +1,4 @@
-/Database
 /Results
 *.mexw64
+*.tfm
+*.txt
