@@ -14,6 +14,13 @@ GT_REG_MATRIX = [quat2rotm([0.955586 0.00548449 -0.294635 -0.0038555]).',...
 GICP_EPSILON = 1e-6; 
 D_MAX = 1; 
 
+ICP_EXTRAPOLATE = false;
+ICP_MAX_ITERATIONS = 100;
+MAX_INLINER_DISTANCE = 7;
+MAX_INLINER_RATIO = MAX_INLINER_DISTANCE/100;
+% (!!!) Effective value is 100*maxInlierDistance {For example, maxInlierDistance=0.07  --->  effectively 7m}
+ICP_TOLERANCE = [0.1,0.1*pi/180];
+
 % ICP Methods 
 no_icp.name = sprintf('No ICP \t\t\t');
 no_icp.errors = []; 
@@ -22,12 +29,22 @@ no_icp.function_handle = @(local, global_c) eye(4,4);
 icp_point_to_point.name = 'ICP Point to Point' ; 
 icp_point_to_point.errors = []; 
 icp_point_to_point.function_handle = @(local, global_c) ...
-    transpose(getfield(pcregrigid(local,global_c,'Metric','pointToPoint'), 'T'));
+    transpose(getfield(pcregrigid_v3(local,global_c, ...
+    'Metric','pointToPoint',...
+    'Extrapolate',ICP_EXTRAPOLATE,...
+    'MaxIterations',ICP_MAX_ITERATIONS,...
+    'InlierRatio',MAX_INLINER_RATIO,... % value not actually used as inlier ratio - it is used as maxInlierDistance!
+    'Tolerance',ICP_TOLERANCE), 'T'));
 
 icp_point_to_plane.name = 'ICP Point to Plane' ; 
 icp_point_to_plane.errors = []; 
 icp_point_to_plane.function_handle = @(local, global_c) ...
-    transpose(getfield(pcregrigid(local,global_c,'Metric','pointToPlane'), 'T'));
+    transpose(getfield(pcregrigid_v3(local,global_c, ...
+    'Metric','pointToPlane',...
+    'Extrapolate',ICP_EXTRAPOLATE,...
+    'MaxIterations',ICP_MAX_ITERATIONS,...
+    'InlierRatio',MAX_INLINER_RATIO,... % value not actually used as inlier ratio - it is used as maxInlierDistance!
+    'Tolerance',ICP_TOLERANCE), 'T'));
 
 gicp.name = 'Generalized ICP' ; 
 gicp.errors = []; 

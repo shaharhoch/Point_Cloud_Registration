@@ -8,7 +8,8 @@ global_cloud = pcread('Database\Global_Cloud\Global_Cloud.ply');
 COARS_REG_DB = csvread('Database\Local2Global_Coarse.csv'); 
 GROUND_TRUTH_DB = csvread('Database\Local2Global_GT.csv');
 
-GICP_EPSILON = 1e-6;
+GICP_EPSILON = 0.0004;
+GICP_D_MAX = 15;
 NUM_OF_POINTS_FOR_NORMAL_CALC = 6;
 
 LOCAL_CLOUD_RANGE = [2, 60]; %[min, max]
@@ -48,7 +49,7 @@ icp_point_to_plane.function_handle = @(local, global_c) ...
 gicp.name = 'Generalized ICP' ; 
 gicp.errors = []; 
 gicp.function_handle = @(local, global_c) transpose(gicp_alg(double(getfield(local, 'Location')),...
-    double(getfield(global_c, 'Location')), GICP_EPSILON, MAX_INLINER_DISTANCE));
+    double(getfield(global_c, 'Location')), GICP_EPSILON, GICP_D_MAX));
 
 ICP_METHODS = {no_icp, icp_point_to_point, icp_point_to_plane, gicp}; 
 
@@ -81,6 +82,7 @@ for i=1:NUM_OF_CLOUDS
     
     %Make sure this is a rotation matrix
     if(det(coarse_reg_mat(1:3,1:3)) ~= 1)
+        assert(abs(det(coarse_reg_mat(1:3,1:3))-1) < 1e-4);
         [U,~,V] = svd(coarse_reg_mat(1:3,1:3));
         S = eye(size(U)); 
         coarse_reg_mat(1:3,1:3) = U*S*V';
@@ -111,6 +113,7 @@ for i=1:NUM_OF_CLOUDS
         
         %Make sure this is a rotation matrix
         if(det(total_reg_mtx(1:3,1:3)) ~= 1)
+            assert(abs(det(total_reg_mtx(1:3,1:3))-1) < 1e-3);
             [U,~,V] = svd(total_reg_mtx(1:3,1:3));
             S = eye(size(U)); 
             total_reg_mtx(1:3,1:3) = U*S*V';
@@ -145,9 +148,9 @@ fprintf('\n\n');
 
 % Display errors 
 fprintf('\t\t\t\t\t\t Localization Error[m] \t\t Yaw Absolute Error[deg] \t\t Pitch Absolute Error[deg] \t\t Roll Absolute Error[deg]\n');
-for ind=1:length(ICP_METHODS)
-    icp_method = ICP_METHODS{ind};
-    for cloud_ind=1:NUM_OF_CLOUDS
+for cloud_ind=1:NUM_OF_CLOUDS
+    for ind=1:length(ICP_METHODS)
+        icp_method = ICP_METHODS{ind};
         abs_errs = abs(icp_method.errors(cloud_ind,:));
 
         fprintf('Cloud %-2d %-18s \t\t %f \t\t\t\t\t %f \t\t\t\t\t\t %f \t\t\t\t\t\t %f\n', ...
