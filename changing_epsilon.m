@@ -56,6 +56,7 @@ gicp.function_handle = @(local, global_c) gicpWrapper(local, global_c,...
     GICP_EPSILON, D_MAX);
 
 ICP_METHODS = {no_icp, icp_point_to_point, icp_point_to_plane, gicp}; 
+%ICP_METHODS = {gicp}; 
 
 EPSILON_VALS = logspace(-8, -3, 10); 
 rmse_bunny1 = zeros(size(EPSILON_VALS));
@@ -64,6 +65,12 @@ rre_mtx = zeros(length(EPSILON_VALS), length(ICP_METHODS));
 location_err_mtx = zeros(length(EPSILON_VALS), length(ICP_METHODS));
 
 for eps_ind=1:length(EPSILON_VALS)
+    % Modify GICP according to noise epsilon
+    gicp.function_handle = @(local, global_c) gicpWrapper(local, global_c,...
+    EPSILON_VALS(eps_ind)*10, D_MAX);
+
+    ICP_METHODS = {no_icp, icp_point_to_point, icp_point_to_plane, gicp}; 
+    
     % Add noise to bunny2 
     normals = pcnormals(bunny2_orig);
     noise_size = sqrt(EPSILON_VALS(eps_ind))*normrnd(0, 1,...
@@ -71,14 +78,13 @@ for eps_ind=1:length(EPSILON_VALS)
     location = double(bunny2_orig.Location)+noise_size.*normals;
     bunny2 = pointCloud(location);
     bunny2.Color = uint8(repmat([0, 0, 255],size(bunny2.Location,1),1));
-    pcshow(bunny2);
-    view([0,90])
     
     % Calculate RMSE
     rmse_bunny1(eps_ind) = getCloudsRMSE(bunny1, bunny2, D_MAX);
     rmse_bunny2_orig(eps_ind) = getCloudsRMSE(bunny2_orig, bunny2, D_MAX);
     
     % Apply ICP registration
+    figure('Visible','off');
     for ind=1:length(ICP_METHODS)
         icp_method = ICP_METHODS{ind}; 
 
@@ -102,19 +108,17 @@ for eps_ind=1:length(EPSILON_VALS)
 
         ICP_METHODS{ind} = icp_method;
 
-        % Display result
-        figure('Visible','off'); 
+        % Display result 
+        subplot(2, 2, ind)
         pcshow(bunny2_shifted);
         hold on
         pcshow(bunny1);
         title(icp_method.name)
         view([0,90])
-        
-        pic_name = sprintf('Results/Epsilon_%.2e', EPSILON_VALS(eps_ind));
-        pic_name = strrep(pic_name,'.','_');
-        saveas(gcf, pic_name, 'jpg');
-        close all
     end
+    pic_name = sprintf('Results/Epsilon_%.2e', EPSILON_VALS(eps_ind));
+    pic_name = strrep(pic_name,'.','_');
+    saveas(gcf, pic_name, 'jpg');
 end
 
 % Plot RMSE
@@ -145,6 +149,7 @@ xlabel('Epsilon[A.U]')
 ylabel('RRE[A.U]')
 legend(legend_list);
 saveas(gcf, 'Results/RRE', 'jpg');
+savefig('Results/RRE')
 
 % Plot Localization Error
 figure; 
@@ -159,4 +164,8 @@ xlabel('Epsilon[A.U]')
 ylabel('Localization Error[A.U]')
 legend(legend_list);
 saveas(gcf, 'Results/Localization_Error', 'jpg');
+savefig('Results/Localization_Error')
+
+close all
+clear mex
 

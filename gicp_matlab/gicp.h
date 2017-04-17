@@ -75,6 +75,7 @@ namespace dgc {
       void SetMaxIteration(int iter) { max_iteration_ = iter; }
       void SetMaxIterationInner(int iter) { max_iteration_inner_ = iter; }
       void SetEpsilon(double eps) { epsilon_ = eps; }
+      void SetEpsilonRot(double eps_rot) { epsilon_rot_ = eps_rot; }
       void SetSolveRotation(bool s) { solve_rotation_ = s; }
       void SetGICPEpsilon(double eps) { gicp_epsilon_ = eps; }
       void SetDebug(bool d) { debug_ = d; }

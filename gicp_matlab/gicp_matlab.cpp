@@ -42,8 +42,12 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
     global_cloud.ComputeMatrices();
     
     global_cloud.SetDebug(false);
-    global_cloud.SetMaxIterationInner(8);
-    global_cloud.SetMaxIteration(100);
+    global_cloud.SetMaxIterationInner(200);
+    global_cloud.SetMaxIteration(10000);
+    global_cloud.SetEpsilon(1e-8);
+    local_cloud.SetEpsilon(1e-8);
+    global_cloud.SetEpsilonRot(1e-8);
+    local_cloud.SetEpsilonRot(1e-8);
     
     // Initialzie transformation to identity transformations     
     dgc_transform_t t_base, t1; 
@@ -51,7 +55,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
     dgc_transform_identity(t1);
     
     int iterations = global_cloud.AlignScan(&local_cloud, t_base, t1, d_max);
-	//mexPrintf("GICP algorithm converged after %d iterations\n", iterations);
+	mexPrintf("GICP algorithm converged after %d iterations\n", iterations);
     
     // Prepate output arguments
     plhs[0] = mxCreateDoubleMatrix(4,4,mxREAL);
