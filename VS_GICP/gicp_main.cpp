@@ -51,9 +51,10 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
 	}
 	
 	pcl::GeneralizedIterativeClosestPoint<pcl::PointXYZ, pcl::PointXYZ> gicp;
-	gicp.setMaximumOptimizerIterations(100);
-	gicp.setRotationEpsilon(2e-5);
-	gicp.setTransformationEpsilon(1e-5);
+	gicp.setMaximumIterations(1000);
+	gicp.setMaximumOptimizerIterations(200);
+	gicp.setRotationEpsilon(1e-6);
+	gicp.setTransformationEpsilon(1e-6);
 	gicp.setInputCloud(p_local_cloud);
 	gicp.setInputTarget(p_global_cloud);
 	gicp.setMaxCorrespondenceDistance(d_max);
@@ -62,10 +63,10 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
 	pcl::GeneralizedIterativeClosestPoint<pcl::PointXYZ, pcl::PointXYZ>::MatricesVectorPtr p_global_cov(new pcl::GeneralizedIterativeClosestPoint<pcl::PointXYZ, pcl::PointXYZ>::MatricesVector);
 	pcl::GeneralizedIterativeClosestPoint<pcl::PointXYZ, pcl::PointXYZ>::MatricesVectorPtr p_local_cov(new pcl::GeneralizedIterativeClosestPoint<pcl::PointXYZ, pcl::PointXYZ>::MatricesVector);
 
-	computeCovariances(p_global_cloud, p_global_cov, GLOBAL_CLOUD_EPSILON);
+	computeCovariances(p_global_cloud, p_global_cov, epsilon);
 	gicp.setTargetCovariances(p_global_cov);
 
-	computeCovariances(p_local_cloud, p_local_cov, std::max(epsilon, GLOBAL_CLOUD_EPSILON));
+	computeCovariances(p_local_cloud, p_local_cov, std::max(epsilon, epsilon));
 	gicp.setSourceCovariances(p_local_cov);
 
 	pcl::PointCloud<pcl::PointXYZ> final;

@@ -5,7 +5,7 @@
  *
  * The calling syntax is:
  *
- *		reg_mtx = arrayProduct(local_mtx, global_mtx, epsilon, d_max)
+ *		reg_mtx = arrayProduct(local_mtx, global_mtx, epsilon, d_max, max_iter)
  *
  * This is a MEX file for MATLAB.
 */
@@ -28,6 +28,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
     
     double epsilon = mxGetScalar(prhs[2]);
     double d_max = mxGetScalar(prhs[3]);
+    double max_iter = mxGetScalar(prhs[4]);
     
     // Initialzie point clouds
     GICPPointSet local_cloud, global_cloud;
@@ -42,8 +43,8 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
     global_cloud.ComputeMatrices();
     
     global_cloud.SetDebug(false);
-    global_cloud.SetMaxIterationInner(200);
-    global_cloud.SetMaxIteration(10000);
+    global_cloud.SetMaxIterationInner(100);
+    global_cloud.SetMaxIteration(max_iter);
     global_cloud.SetEpsilon(1e-8);
     local_cloud.SetEpsilon(1e-8);
     global_cloud.SetEpsilonRot(1e-8);
@@ -70,7 +71,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
 static void verifyInput(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
 {
     // Verify number of inputs
-    if(nrhs != 4) 
+    if(nrhs != 5) 
     {
         mexErrMsgIdAndTxt("MyToolbox:arrayProduct:nrhs", "Four inputs required.");
     }
@@ -103,7 +104,13 @@ static void verifyInput(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs
         mexErrMsgIdAndTxt("MyToolbox:arrayProduct:notScalar", "Input epsilon must be a scalar.");
     }
     
-    // Verify input 3's type
+    // Verify input 4's type
+    if( !mxIsDouble(prhs[3]) || mxIsComplex(prhs[3]) || mxGetNumberOfElements(prhs[3]) != 1 ) 
+    {
+        mexErrMsgIdAndTxt("MyToolbox:arrayProduct:notScalar", "Input d_max must be a scalar.");
+    }
+    
+    // Verify input 5's type
     if( !mxIsDouble(prhs[3]) || mxIsComplex(prhs[3]) || mxGetNumberOfElements(prhs[3]) != 1 ) 
     {
         mexErrMsgIdAndTxt("MyToolbox:arrayProduct:notScalar", "Input d_max must be a scalar.");
