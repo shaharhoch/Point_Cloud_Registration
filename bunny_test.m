@@ -16,6 +16,7 @@ D_MAX = 1;
 
 ICP_EXTRAPOLATE = false;
 ICP_MAX_ITERATIONS = 100;
+GICP_MAX_ITERATIONS = 2000;
 MAX_INLINER_DISTANCE = 7;
 MAX_INLINER_RATIO = MAX_INLINER_DISTANCE/100;
 % (!!!) Effective value is 100*maxInlierDistance {For example, maxInlierDistance=0.07  --->  effectively 7m}
@@ -53,9 +54,15 @@ gicp.name = 'Generalized ICP' ;
 gicp.errors = []; 
 gicp.num_iter = [];
 gicp.function_handle = @(local, global_c) gicpWrapper(local, global_c,...
-    GICP_EPSILON, D_MAX);
+    GICP_EPSILON, D_MAX, GICP_MAX_ITERATIONS);
 
-ICP_METHODS = {no_icp, icp_point_to_point, icp_point_to_plane, gicp}; 
+go_icp.name = 'Go-ICP' ; 
+go_icp.errors = []; 
+go_icp.num_iter = [];
+go_icp.function_handle = @(local, global_c) GoICPWrapper(local, global_c);
+
+ICP_METHODS = {no_icp, icp_point_to_point, icp_point_to_plane, gicp, go_icp}; 
+%ICP_METHODS = {go_icp}; 
 
 % Apply ICP registration
 for ind=1:length(ICP_METHODS)
@@ -79,7 +86,7 @@ for ind=1:length(ICP_METHODS)
     ICP_METHODS{ind} = icp_method;
     
     % Display result
-    subplot(2,2,ind);
+    subplot(2,3,ind);
     pcshow(bunny2_shifted);
     hold on
     pcshow(bunny1);

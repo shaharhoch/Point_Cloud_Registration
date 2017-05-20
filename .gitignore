@@ -1,5 +1,7 @@
 /Results
 *.mexw64
 *.tfm
-*.txt
+/*.txt
+*.asv
 /VS_GICP/build
+/Go_ICP/build

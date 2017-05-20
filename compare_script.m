@@ -3,7 +3,7 @@ clear all
 clc 
 
 % Parameters
-NUM_OF_CLOUDS = 24;
+NUM_OF_CLOUDS = 1;%24;
 global_cloud = pcread('Database\Global_Cloud\Global_Cloud.ply'); 
 COARS_REG_DB = csvread('Database\Local2Global_Coarse.csv'); 
 GROUND_TRUTH_DB = csvread('Database\Local2Global_GT.csv');
@@ -15,6 +15,7 @@ LOCAL_CLOUD_RANGE = [2, 60]; %[min, max]
 
 ICP_EXTRAPOLATE = false;
 ICP_MAX_ITERATIONS = 100;
+GICP_MAX_ITERATIONS = 1200;
 MAX_INLINER_DISTANCE = 7;
 MAX_INLINER_RATIO = MAX_INLINER_DISTANCE/100;
 % (!!!) Effective value is 100*maxInlierDistance {For example, maxInlierDistance=0.07  --->  effectively 7m}
@@ -25,6 +26,7 @@ no_icp.name = sprintf('No ICP');
 no_icp.errors = []; 
 no_icp.num_iter = [];
 no_icp.function_handle = @(local, global_c) unitTransform();
+no_icp.run_time = [];
 
 icp_point_to_point.name = 'ICP Point to Point' ; 
 icp_point_to_point.errors = []; 
@@ -36,6 +38,7 @@ icp_point_to_point.function_handle = @(local, global_c) ...
     ICP_MAX_ITERATIONS,...
     MAX_INLINER_RATIO,... % value not actually used as inlier ratio - it is used as maxInlierDistance!
     ICP_TOLERANCE);
+icp_point_to_point.run_time = [];
 
 icp_point_to_plane.name = 'ICP Point to Plane' ; 
 icp_point_to_plane.errors = []; 
@@ -47,14 +50,22 @@ icp_point_to_plane.function_handle = @(local, global_c) ...
     ICP_MAX_ITERATIONS,...
     MAX_INLINER_RATIO,... % value not actually used as inlier ratio - it is used as maxInlierDistance!
     ICP_TOLERANCE);
+icp_point_to_plane.run_time = [];
 
 gicp.name = 'Generalized ICP' ; 
 gicp.errors = []; 
 gicp.num_iter = [];
 gicp.function_handle = @(local, global_c) gicpWrapper(local, global_c,...
-    GICP_EPSILON, MAX_INLINER_DISTANCE);
+    GICP_EPSILON, MAX_INLINER_DISTANCE, GICP_MAX_ITERATIONS);
+gicp.run_time = []; 
 
-ICP_METHODS = {no_icp, icp_point_to_point, icp_point_to_plane, gicp}; 
+go_icp.name = 'Go-ICP' ; 
+go_icp.errors = []; 
+go_icp.num_iter = [];
+go_icp.function_handle = @(local, global_c) GoICPWrapper(local, global_c);
+go_icp.run_time = []; 
+
+ICP_METHODS = {no_icp, icp_point_to_point, icp_point_to_plane, gicp, go_icp}; 
 
 for i=1:NUM_OF_CLOUDS
     % Get cloud name
@@ -107,7 +118,7 @@ for i=1:NUM_OF_CLOUDS
     for ind=1:length(ICP_METHODS)
         icp_method = ICP_METHODS{ind}; 
         
-        [reg_trans, num_iter] = icp_method.function_handle(local_cloud_coarse,...
+        [reg_trans, num_iter, run_time] = icp_method.function_handle(local_cloud_coarse,...
             global_cloud_relevant);
         
         % Get the total registration transformation
@@ -125,6 +136,8 @@ for i=1:NUM_OF_CLOUDS
         
         icp_method.num_iter = [icp_method.num_iter; ...
             num_iter];
+        
+        icp_method.run_time = [icp_method.run_time, run_time]; 
         
         ICP_METHODS{ind} = icp_method;
     end    
@@ -211,7 +224,7 @@ xlabel('Cloud Index')
 ylabel('Realtive Rotation Error[deg]')
 hold on
 
-plot_types = {'-x', '-o', '-*', '-+'};
+plot_types = {'-x', '-o', '-*', '-+', '-d'};
 
 name_cell = {};
 for i=1:length(ICP_METHODS)
@@ -233,4 +246,20 @@ legend(name_cell)
 
 subplot(1,2,2)
 legend(name_cell)
+
+% Print graphs of all 24 run_times
+figure;
+plot_types = {'-x', '-o', '-*', '-+', '-d'};
+
+name_cell = {};
+for i=1:length(ICP_METHODS)
+    plot(ICP_METHODS{i}.run_time, plot_types{i})
+    hold on
     
+    name_cell{i} = ICP_METHODS{i}.name;
+end
+
+title('Registration time')
+xlabel('Cloud Index')
+ylabel('Run Time[sec]')
+legend(name_cell)   
