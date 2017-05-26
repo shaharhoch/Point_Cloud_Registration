@@ -66,6 +66,7 @@ go_icp.function_handle = @(local, global_c) GoICPWrapper(local, global_c);
 go_icp.run_time = []; 
 
 ICP_METHODS = {no_icp, icp_point_to_point, icp_point_to_plane, gicp, go_icp}; 
+%ICP_METHODS = {go_icp}; 
 
 for i=1:NUM_OF_CLOUDS
     % Get cloud name

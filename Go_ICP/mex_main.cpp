@@ -5,7 +5,7 @@
  *
  * The calling syntax is:
  *
- *		[reg_mtx, iter_out] = GoICP(local_mtx, global_mtx, min_translation, translation_width)
+ *		[reg_mtx, iter_out] = GoICP(local_mtx, global_mtx)
  *
  * This is a MEX file for MATLAB.
 */
@@ -24,7 +24,7 @@
 //Function prototypes: 
 static void loadPointCloud(const double* in_mtx, int num_of_points, POINT3D **pp_point);
 static void verifyInput(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[]);
-static void goicpConfig(string FName, GoICP & goicp, double min_translation, double translation_width);
+static void goicpConfig(string FName, GoICP & goicp);
 static void printGoICP(GoICP & goicp);
 
 //Static variables:
@@ -36,13 +36,10 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
     
 	verifyInput(nlhs, plhs, nrhs, prhs);
 
-	double min_translation = mxGetScalar(prhs[2]);
-	double translation_width = mxGetScalar(prhs[3]);
-
 	POINT3D *p_global, *p_local;
 	GoICP goicp;
 
-	goicpConfig(CONFIG_FILE_MAME, goicp, min_translation, translation_width);
+	goicpConfig(CONFIG_FILE_MAME, goicp);
 
 	loadPointCloud(mxGetPr(prhs[0]), mxGetM(prhs[0]), &p_local);
 	loadPointCloud(mxGetPr(prhs[1]), mxGetM(prhs[1]), &p_global);
@@ -55,11 +52,12 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
 	//Build distance transform
 	goicp.BuildDT();
 
-	printGoICP(goicp);
 	//Run GoICP algorithm
 	float error; 
 	error = goicp.Register();
 	Debug_Out_Stream << "Registration Error: " << error << "\n\n";
+
+	printGoICP(goicp);
 
 	//Prepare output arguments
 	//Currently I set number of iterations to always be 0, 
@@ -125,7 +123,7 @@ static void loadPointCloud(const double* in_mtx, int num_of_points, POINT3D **pp
 static void verifyInput(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
 {
 	// Verify number of inputs
-	if (nrhs != 4)
+	if (nrhs != 2)
 	{
 		mexErrMsgIdAndTxt("MyToolbox:arrayProduct:nrhs", "Four inputs required.");
 	}
@@ -151,34 +149,22 @@ static void verifyInput(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs
 	{
 		mexErrMsgIdAndTxt("MyToolbox:arrayProduct:InvalidMtxSize", "Second input matrix has to have 3 columns");
 	}
-
-	// Verify input 3's type
-	if (!mxIsDouble(prhs[2]) || mxIsComplex(prhs[2]) || mxGetNumberOfElements(prhs[2]) != 1)
-	{
-		mexErrMsgIdAndTxt("MyToolbox:arrayProduct:notScalar", "Input min_translation must be a scalar.");
-	}
-
-	// Verify input 4's type
-	if (!mxIsDouble(prhs[3]) || mxIsComplex(prhs[3]) || mxGetNumberOfElements(prhs[3]) != 1)
-	{
-		mexErrMsgIdAndTxt("MyToolbox:arrayProduct:notScalar", "Input translation_width must be a scalar.");
-	}
 }
 
-static void goicpConfig(string FName, GoICP & goicp, double min_translation, double translation_width)
+static void goicpConfig(string FName, GoICP & goicp)
 {
 	// Open and parse the associated config file
 	ConfigMap config(FName.c_str());
 
 	goicp.MSEThresh = config.getF("MSEThresh");
-	goicp.initNodeRot.a = (-1.0)*PI;
-	goicp.initNodeRot.b = (-1.0)*PI;
-	goicp.initNodeRot.c = (-1.0)*PI;
-	goicp.initNodeRot.w = 2.0*PI;
-	goicp.initNodeTrans.x = min_translation;
-	goicp.initNodeTrans.y = min_translation;
-	goicp.initNodeTrans.z = min_translation;
-	goicp.initNodeTrans.w = translation_width;
+	goicp.initNodeRot.a = config.getF("rotMinX");
+	goicp.initNodeRot.b = config.getF("rotMinY");
+	goicp.initNodeRot.c = config.getF("rotMinZ");
+	goicp.initNodeRot.w = config.getF("rotWidth");
+	goicp.initNodeTrans.x = config.getF("transMinX");
+	goicp.initNodeTrans.y = config.getF("transMinY");
+	goicp.initNodeTrans.z = config.getF("transMinZ");
+	goicp.initNodeTrans.w = config.getF("transWidth");
 	goicp.trimFraction = config.getF("trimFraction");
 	// If < 0.1% trimming specified, do no trimming
 	if (goicp.trimFraction < 0.001)
@@ -186,7 +172,7 @@ static void goicpConfig(string FName, GoICP & goicp, double min_translation, dou
 		goicp.doTrim = false;
 	}
 	goicp.dt.SIZE = config.getI("distTransSize");
-	goicp.dt.expandFactor = config.getF("distExpandFactor")*translation_width;
+	goicp.dt.expandFactor = config.getF("distTransExpandFactor");
 }
 
 static void printGoICP(GoICP & goicp)
