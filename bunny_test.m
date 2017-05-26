@@ -61,8 +61,8 @@ go_icp.errors = [];
 go_icp.num_iter = [];
 go_icp.function_handle = @(local, global_c) GoICPWrapper(local, global_c);
 
-ICP_METHODS = {no_icp, icp_point_to_point, icp_point_to_plane, gicp, go_icp}; 
-%ICP_METHODS = {go_icp}; 
+%ICP_METHODS = {no_icp, icp_point_to_point, icp_point_to_plane, gicp, go_icp}; 
+ICP_METHODS = {go_icp}; 
 
 % Apply ICP registration
 for ind=1:length(ICP_METHODS)
@@ -101,7 +101,7 @@ for ind=1:length(ICP_METHODS)
     abs_errs = abs(icp_method.errors);
     
     %Print
-    fprintf('%s \t\t %f \t\t\t\t\t\t %f \t\t\t\t\t %f \t\t\t\t\t\t %f \t\t\t\t\t %f\n', ...
+    fprintf('%-18s \t\t %f \t\t\t\t\t\t %f \t\t\t\t\t %f \t\t\t\t\t\t %f \t\t\t\t\t %f\n', ...
         icp_method.name, abs_errs(1), abs_errs(2),...
         abs_errs(3), abs_errs(4), abs_errs(5));
 end
