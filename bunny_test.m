@@ -61,8 +61,8 @@ go_icp.errors = [];
 go_icp.num_iter = [];
 go_icp.function_handle = @(local, global_c) GoICPWrapper(local, global_c);
 
-%ICP_METHODS = {no_icp, icp_point_to_point, icp_point_to_plane, gicp, go_icp}; 
-ICP_METHODS = {go_icp}; 
+ICP_METHODS = {no_icp, icp_point_to_point, icp_point_to_plane, gicp, go_icp}; 
+%ICP_METHODS = {go_icp}; 
 
 % Apply ICP registration
 for ind=1:length(ICP_METHODS)

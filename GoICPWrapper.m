@@ -11,9 +11,8 @@ global_cloud_shifted = global_cloud.Location - global_cloud_trans;
 % this function is the local cloud that is already roughly shifted to the
 % correct location, I do this in order to not ruin that. 
 %local_cloud_trans = mean(local_cloud.Location, 1); 
-local_cloud_trans = global_cloud_trans;
-local_cloud_shifted = local_cloud.Location - local_cloud_trans;
-assert(abs(mean(local_cloud_shifted(:))) < 5);
+local_cloud_shifted = local_cloud.Location - global_cloud_trans;
+%assert(abs(mean(local_cloud_shifted(:))) < 5);
 
 %Scale both clouds
 scaling_factor = max([global_cloud_shifted(:); local_cloud_shifted(:)]); 
@@ -27,8 +26,8 @@ run_time = toc;
 
 % Shift transform matrix to fit original clouds
 transform_scaled = transform_orig;
-transform_scaled(1:3,end) = transform_orig(1:3,end)*scaling_factor;
+transform_scaled(1:3,end) = transform_orig(1:3,end)*scaling_factor + ...
+    global_cloud_trans.' - transform_scaled(1:3,1:3)*(global_cloud_trans.');
 
 transform = transform_scaled;
-transform(1:3,end) = transform_scaled(1:3,end)+local_cloud_trans.'-global_cloud_trans.';
 end

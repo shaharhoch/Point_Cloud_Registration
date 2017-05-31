@@ -2,8 +2,11 @@ close all
 clear all
 clc 
 
+% Open log file
+f_id = fopen('Results\log.txt', 'w'); 
+
 % Parameters
-NUM_OF_CLOUDS = 1;%24;
+NUM_OF_CLOUDS = 24;
 global_cloud = pcread('Database\Global_Cloud\Global_Cloud.ply'); 
 COARS_REG_DB = csvread('Database\Local2Global_Coarse.csv'); 
 GROUND_TRUTH_DB = csvread('Database\Local2Global_GT.csv');
@@ -65,8 +68,8 @@ go_icp.num_iter = [];
 go_icp.function_handle = @(local, global_c) GoICPWrapper(local, global_c);
 go_icp.run_time = []; 
 
-%ICP_METHODS = {no_icp, icp_point_to_point, icp_point_to_plane, gicp, go_icp}; 
-ICP_METHODS = {go_icp}; 
+ICP_METHODS = {no_icp, icp_point_to_point, icp_point_to_plane, gicp, go_icp}; 
+%ICP_METHODS = {go_icp}; 
 
 for i=1:NUM_OF_CLOUDS
     % Get cloud name
@@ -132,8 +135,12 @@ for i=1:NUM_OF_CLOUDS
             total_reg_mtx(1:3,1:3) = U*S*V';
         end
         
+        local_shifted = pctransform(local_cloud,...
+            affine3d(transpose(total_reg_mtx)));
+        
         icp_method.errors = [icp_method.errors; ...
-            getTransformationDiff(total_reg_mtx, gt_reg_mat)];
+            getTransformationDiff(total_reg_mtx, gt_reg_mat),...
+            getCloudsRMSE( global_cloud_relevant, local_shifted, MAX_INLINER_DISTANCE )];
         
         icp_method.num_iter = [icp_method.num_iter; ...
             num_iter];
@@ -145,63 +152,63 @@ for i=1:NUM_OF_CLOUDS
 end
 
 % Display average errors 
-fprintf('\n\n');
-fprintf('\t\t\t\t\t\t Localization Error[m] \t\t Yaw Absolute Error[deg] \t\t Pitch Absolute Error[deg] \t\t Roll Absolute Error[deg]\n');
+general_print(f_id,'\n\n');
+general_print(f_id,'\t\t\t\t\t\t Localization Error[m] \t\t Yaw Absolute Error[deg] \t\t Pitch Absolute Error[deg] \t\t Roll Absolute Error[deg] \t\t RMSE[m]\n');
 for ind=1:length(ICP_METHODS)
     icp_method = ICP_METHODS{ind};
     abs_avg_errs = mean(abs(icp_method.errors), 1);
     abs_std_errs = std(abs(icp_method.errors), 0, 1);
     
     % Print Mean
-    fprintf('%-18s Mean \t\t %f \t\t\t\t\t %f \t\t\t\t\t\t %f \t\t\t\t\t\t %f\n', ...
+    general_print(f_id,'%-18s Mean \t\t %f \t\t\t\t\t %f \t\t\t\t\t\t %f \t\t\t\t\t\t %f \t\t\t\t %f\n', ...
         icp_method.name, abs_avg_errs(1), abs_avg_errs(2),...
-        abs_avg_errs(3), abs_avg_errs(4));
+        abs_avg_errs(3), abs_avg_errs(4), abs_avg_errs(5));
     
     % Print STD
-    fprintf('%-18s STD \t\t\t %f \t\t\t\t\t %f \t\t\t\t\t\t %f \t\t\t\t\t\t %f\n', ...
+    general_print(f_id,'%-18s STD \t\t\t %f \t\t\t\t\t %f \t\t\t\t\t\t %f \t\t\t\t\t\t %f \t\t\t\t %f\n', ...
         icp_method.name, abs_std_errs(1), abs_std_errs(2),...
-        abs_std_errs(3), abs_std_errs(4));
+        abs_std_errs(3), abs_std_errs(4), abs_std_errs(5));
 end
-fprintf('\n\n');
+general_print(f_id,'\n\n');
 
 % Display errors 
-fprintf('\t\t\t\t\t\t Localization Error[m] \t\t Yaw Absolute Error[deg] \t\t Pitch Absolute Error[deg] \t\t Roll Absolute Error[deg]\n');
+general_print(f_id,'\t\t\t\t\t\t Localization Error[m] \t\t Yaw Absolute Error[deg] \t\t Pitch Absolute Error[deg] \t\t Roll Absolute Error[deg] \t\t RMSE[m]\n');
 for ind=1:length(ICP_METHODS)
     icp_method = ICP_METHODS{ind};
     for cloud_ind=1:NUM_OF_CLOUDS
         abs_errs = abs(icp_method.errors(cloud_ind,:));
 
-        fprintf('Cloud %-2d %-18s \t\t %f \t\t\t\t\t %f \t\t\t\t\t\t %f \t\t\t\t\t\t %f\n', ...
+        general_print(f_id,'Cloud %-2d %-18s \t %f \t\t\t\t\t %f \t\t\t\t\t\t %f \t\t\t\t\t\t %f \t\t\t\t %f\n', ...
             cloud_ind, icp_method.name, abs_errs(1), abs_errs(2),...
-            abs_errs(3), abs_errs(4));
+            abs_errs(3), abs_errs(4), abs_errs(5));
     end
 end
-fprintf('\n\n');
+general_print(f_id,'\n\n');
 
-fprintf('\t\t\t\t\t\t Num of iterations (Mean) \t\t\t Num of iterations (STD)\n');
+general_print(f_id,'\t\t\t\t\t\t Num of iterations (Mean) \t\t\t Num of iterations (STD)\n');
 for ind=1:length(ICP_METHODS)
     icp_method = ICP_METHODS{ind};
     avg_num_iter = mean(icp_method.num_iter, 1);
     std_num_iter = std(icp_method.num_iter, 0, 1);
     
     % Print
-    fprintf('%-18s \t\t\t %f \t\t\t\t\t\t\t %f \n', ...
+    general_print(f_id,'%-18s \t\t\t %f \t\t\t\t\t\t\t %f \n', ...
         icp_method.name, avg_num_iter, std_num_iter);
 end
-fprintf('\n\n');
+general_print(f_id,'\n\n');
 
 % Plot error histograms
-histogram_types = {'Localization Error', 'Realtive Rotation Error'};
-units = {'[m]', '[deg]'};
+histogram_types = {'Localization Error', 'Realtive Rotation Error', 'RMSE'};
+units = {'[m]', '[deg]', '[m]'};
 
 % Print histograms
 for i=1:length(ICP_METHODS)
     figure;
     error_vec = [ICP_METHODS{i}.errors(:,1), ...
-        sum(abs(ICP_METHODS{i}.errors(:,2:4)),2)];
+        sum(abs(ICP_METHODS{i}.errors(:,2:4)),2), ICP_METHODS{i}.errors(:,5)];
     for j=1:length(histogram_types)
         errors = abs(ICP_METHODS{i}.errors(:,j));
-        subplot(1,2,j);
+        subplot(3,1,j);
         histogram(errors, linspace(0,2,6))
         title_str = sprintf('%s for %s \n Mean: %.2f, STD: %.2f',...
             histogram_types{j}, ICP_METHODS{i}.name, mean(errors), std(errors));
@@ -209,20 +216,28 @@ for i=1:length(ICP_METHODS)
         xlabel([histogram_types{j}, units{j}])
         ylabel('Num of Occurences')
     end
+    savefig(sprintf('Results\\%s_Histogram', ICP_METHODS{i}.name))
+    saveas(gcf, sprintf('Results\\%s_Histogram.jpg', ICP_METHODS{i}.name))
 end
 
 % Print graphs of all 24 errors
 figure;
-subplot(1,2,1); 
+subplot(3,1,1); 
 title('Cloud Localization Error')
 xlabel('Cloud Index')
 ylabel('Localization Error[m]')
 hold on
 
-subplot(1,2,2);
+subplot(3,1,2);
 title('Cloud Realtive Rotation Error')
 xlabel('Cloud Index')
 ylabel('Realtive Rotation Error[deg]')
+hold on
+
+subplot(3,1,3);
+title('RMSE')
+xlabel('Cloud Index')
+ylabel('RMSE[m]')
 hold on
 
 plot_types = {'-x', '-o', '-*', '-+', '-d'};
@@ -230,23 +245,33 @@ plot_types = {'-x', '-o', '-*', '-+', '-d'};
 name_cell = {};
 for i=1:length(ICP_METHODS)
     error_vec = [ICP_METHODS{i}.errors(:,1), ...
-        sum(abs(ICP_METHODS{i}.errors(:,2:4)),2)];
+        sum(abs(ICP_METHODS{i}.errors(:,2:4)),2), ICP_METHODS{i}.errors(:,5)];
     
-    subplot(1,2,1)
+    subplot(3,1,1)
     plot(error_vec(:,1), plot_types{i})
     hold on
     
-    subplot(1,2,2)
+    subplot(3,1,2)
     plot(error_vec(:,2), plot_types{i})
+    hold on
+    
+    subplot(3,1,3)
+    plot(error_vec(:,3), plot_types{i})
     hold on
     
     name_cell{i} = ICP_METHODS{i}.name;
 end
-subplot(1,2,1)
+subplot(3,1,1)
 legend(name_cell)
 
-subplot(1,2,2)
+subplot(3,1,2)
 legend(name_cell)
+
+subplot(3,1,3)
+legend(name_cell)
+
+savefig('Results\Error_Grpah')
+saveas(gcf, 'Results\Error_Grpah.jpg')
 
 % Print graphs of all 24 run_times
 figure;
@@ -264,3 +289,7 @@ title('Registration time')
 xlabel('Cloud Index')
 ylabel('Run Time[sec]')
 legend(name_cell)   
+savefig('Results\Run_Time')
+saveas(gcf, 'Results\Run_Time.jpg')
+
+fclose(f_id);
