@@ -270,8 +270,8 @@ legend(name_cell)
 subplot(3,1,3)
 legend(name_cell)
 
-savefig('Results\Error_Grpah')
-saveas(gcf, 'Results\Error_Grpah.jpg')
+savefig('Results\Error_Graph')
+saveas(gcf, 'Results\Error_Graph.jpg')
 
 % Print graphs of all 24 run_times
 figure;
@@ -292,4 +292,6 @@ legend(name_cell)
 savefig('Results\Run_Time')
 saveas(gcf, 'Results\Run_Time.jpg')
 
+% Save entire workspce 
+save('Results\Workspae_Save')
 fclose(f_id);
