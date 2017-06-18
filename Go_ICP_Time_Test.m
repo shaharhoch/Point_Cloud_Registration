@@ -1,3 +1,7 @@
+clc
+clear all
+close all
+
 COARS_REG_DB = csvread('Database\Local2Global_Coarse.csv'); 
 GROUND_TRUTH_DB = csvread('Database\Local2Global_GT.csv');
 global_cloud = pcread('Database\Global_Cloud\Global_Cloud.ply'); 
@@ -8,8 +12,10 @@ MAX_INLINER_DISTANCE = 7;
 
 LOCAL_CLOUD_IDX = 1; 
 
-RMSE_TH_VEC = logspace(1,-3, 10);
-NUM_OF_TEST_POINTS = length(RMSE_TH_VEC); 
+RMSE_TH_VEC = [300];%logspace(1,-3, 10);
+DIST_TRANS_SIZE = linspace(50, 500, 10);
+
+NUM_OF_TEST_POINTS = length(RMSE_TH_VEC) * length(DIST_TRANS_SIZE);
 
 % Load local cloud
 local_cloud = pcread(sprintf('Database\\Local_Clouds\\00%d.ply', LOCAL_CLOUD_IDX)); 
@@ -52,7 +58,9 @@ rmse_vec = zeros(1, NUM_OF_TEST_POINTS);
 run_time_vec = zeros(1, NUM_OF_TEST_POINTS);
 % Apply ICP registration
 for ind=1:NUM_OF_TEST_POINTS
-    writeGoICPCfgFile( RMSE_TH_VEC(ind) );
+    rmse_ind = mod(ind-1, length(RMSE_TH_VEC))+1;
+    dist_trans_ind = floor((ind-1)/length(RMSE_TH_VEC))+1;
+    writeGoICPCfgFile( RMSE_TH_VEC(rmse_ind), DIST_TRANS_SIZE(dist_trans_ind) );
     [reg_trans, num_iter, run_time] = GoICPWrapper(local_cloud_coarse,...
         global_cloud_relevant);
 

@@ -24,6 +24,8 @@ MAX_INLINER_RATIO = MAX_INLINER_DISTANCE/100;
 % (!!!) Effective value is 100*maxInlierDistance {For example, maxInlierDistance=0.07  --->  effectively 7m}
 ICP_TOLERANCE = [0.1,0.1*pi/180];
 
+GPS_STD = 30;
+
 % ICP Methods
 no_icp.name = sprintf('No ICP');
 no_icp.errors = []; 
@@ -113,7 +115,7 @@ for i=1:NUM_OF_CLOUDS
         local_cloud, coarse_reg_mat);
     
     % Calculate normals for the point cloud (required for Point-to-Plane)
-    local_cloud.Normal = pcnormals(local_cloud, ...
+    local_cloud_coarse.Normal = pcnormals(local_cloud, ...
         NUM_OF_POINTS_FOR_NORMAL_CALC);
     global_cloud_relevant.Normal = pcnormals(global_cloud_relevant,...
         NUM_OF_POINTS_FOR_NORMAL_CALC);
@@ -149,6 +151,114 @@ for i=1:NUM_OF_CLOUDS
         
         ICP_METHODS{ind} = icp_method;
     end    
+end
+
+% Run GO-ICP without coarse registration
+go_icp_no_coarse.name = 'Go-ICP No Coarse' ; 
+go_icp_no_coarse.errors = []; 
+go_icp_no_coarse.num_iter = [];
+go_icp_no_coarse.function_handle = @(local, global_c) GoICPWrapper(local, global_c);
+go_icp_no_coarse.run_time = []; 
+
+no_icp_no_coarse.name = 'No ICP No Coarse' ; 
+no_icp_no_coarse.errors = []; 
+no_icp_no_coarse.num_iter = [];
+no_icp_no_coarse.function_handle = @(local, global_c) unitTransform();
+no_icp_no_coarse.run_time = []; 
+
+ICP_METHODS_NO_COARSE = {go_icp_no_coarse, no_icp_no_coarse};
+
+for i=1:NUM_OF_CLOUDS
+    % Get cloud name
+    assert(NUM_OF_CLOUDS < 100 && NUM_OF_CLOUDS > 0)
+    if(i < 10)
+        cloud_name = ['00', num2str(i)];
+    else
+        cloud_name = ['0', num2str(i)];
+    end
+    cloud_name = [cloud_name, '.ply'];
+    
+    % Load local cloud
+    local_cloud = pcread(['Database\Local_Clouds\', cloud_name]); 
+    
+    %Remove all points in the local cloud that are out of range
+    local_cloud_range = sqrt(sum(local_cloud.Location.^2, 2)); 
+    valid_idxs = find((local_cloud_range >= LOCAL_CLOUD_RANGE(1)).* ...
+        (local_cloud_range <= LOCAL_CLOUD_RANGE(2)));
+    local_cloud = select(local_cloud, valid_idxs); 
+       
+    % Get ground truth registration
+    gt_reg_mat = GROUND_TRUTH_DB(i,:);
+    gt_reg_mat = transpose(reshape(gt_reg_mat, [4,4]));
+    gt_reg_point = gt_reg_mat(1:3,4); 
+    
+    % Draw a random point around the grouand truth point with GPS accuracy
+    coarse_reg_point = zeros(size(gt_reg_point));
+    coarse_reg_point(1:2) = gt_reg_point(1:2) + normrnd(0, GPS_STD, [2,1]);
+    coarse_reg_point(3) = gt_reg_point(3);
+    
+    % Get coarse transformation, which is shifting the local cloud by the
+    % coarse reg point
+    coarse_reg_mat = eye(4);
+    coarse_reg_mat(1:3, 4) = coarse_reg_point;
+    
+    % Apply coarse transform on the local cloud
+    local_cloud_coarse = pctransform(local_cloud, affine3d(transpose(coarse_reg_mat)));
+    
+    % Get relevant part of global cloud.
+    % The relevant part of the local cloud is around the coarse_reg_point
+    % and at the size of two GPS std's plus the maximum size of the local
+    % cloud.
+    roi_matrix = repmat(coarse_reg_point, 1, 2);
+    roi_limits = repmat([-1*(LOCAL_CLOUD_RANGE(2)+GPS_STD*2),...
+        LOCAL_CLOUD_RANGE(2)+GPS_STD*2], 3, 1);
+    roi_matrix = roi_matrix + roi_limits;
+    
+    relevant_ind = findPointsInROI(global_cloud, roi_matrix);
+    global_cloud_relevant = select(global_cloud, relevant_ind);
+    
+    % Calculate normals for the point cloud (required for Point-to-Plane)
+    local_cloud_coarse.Normal = pcnormals(local_cloud, ...
+        NUM_OF_POINTS_FOR_NORMAL_CALC);
+    global_cloud_relevant.Normal = pcnormals(global_cloud_relevant,...
+        NUM_OF_POINTS_FOR_NORMAL_CALC);
+    
+    % Apply ICP registration
+    for ind=1:length(ICP_METHODS_NO_COARSE)
+        icp_method = ICP_METHODS_NO_COARSE{ind}; 
+        
+        [reg_trans, num_iter, run_time] = icp_method.function_handle(local_cloud_coarse,...
+            global_cloud_relevant);
+        
+        % Get the total registration transformation
+        total_reg_mtx = reg_trans*coarse_reg_mat;
+        
+        %Make sure this is a rotation matrix
+        if(det(total_reg_mtx(1:3,1:3)) ~= 1)
+            [U,~,V] = svd(total_reg_mtx(1:3,1:3));
+            S = eye(size(U)); 
+            total_reg_mtx(1:3,1:3) = U*S*V';
+        end
+        
+        local_shifted = pctransform(local_cloud,...
+            affine3d(transpose(total_reg_mtx)));
+        
+        icp_method.errors = [icp_method.errors; ...
+            getTransformationDiff(total_reg_mtx, gt_reg_mat),...
+            getCloudsRMSE( global_cloud_relevant, local_shifted, MAX_INLINER_DISTANCE )];
+        
+        icp_method.num_iter = [icp_method.num_iter; ...
+            num_iter];
+        
+        icp_method.run_time = [icp_method.run_time, run_time]; 
+        
+        ICP_METHODS_NO_COARSE{ind} = icp_method;
+    end    
+end
+
+% Unify ICP Methods with and without coarse registation for graph display.
+for ind=1:length(ICP_METHODS_NO_COARSE)
+    ICP_METHODS{end+1} = ICP_METHODS_NO_COARSE{ind};
 end
 
 % Display average errors 
@@ -240,7 +350,7 @@ xlabel('Cloud Index')
 ylabel('RMSE[m]')
 hold on
 
-plot_types = {'-x', '-o', '-*', '-+', '-d'};
+plot_types = {'-x', '-o', '-*', '-+', '-d', '-^', '-h'};
 
 name_cell = {};
 for i=1:length(ICP_METHODS)
@@ -275,7 +385,7 @@ saveas(gcf, 'Results\Error_Graph.jpg')
 
 % Print graphs of all 24 run_times
 figure;
-plot_types = {'-x', '-o', '-*', '-+', '-d'};
+plot_types = {'-x', '-o', '-*', '-+', '-d', '-^', '-h'};
 
 name_cell = {};
 for i=1:length(ICP_METHODS)
